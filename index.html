@@ -73,7 +73,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-900 tracking-tight">&#x273F; Kalob</span>
+                    <span class="text-2xl font-bold text-blue-900 tracking-tight">&#x273F;&nbsp;Kalob</span>
                     <span class="ml-2 text-sm text-stone-500 hidden sm:block">Language Explorer</span>
                 </div>
                 <div class="flex space-x-1 sm:space-x-4 h-full pt-4 overflow-x-auto" id="nav-tabs">
@@ -542,7 +542,7 @@
 
                 <!-- Suffix Applier -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-col">
-                    <h2 class="text-xl font-semibold mb-2 text-green-900">Suffix Applier <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-0.5 rounded align-middle">N</span></h2>
+                    <h2 class="text-xl font-semibold mb-2 text-green-900">Agglutinator <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-0.5 rounded align-middle">N</span></h2>
                     <p class="text-sm text-stone-500 mb-6">Apply absolute and secondary terminations to derive complex nouns and modifiers.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-2 mb-4">
@@ -570,18 +570,22 @@
                                 <input type="radio" name="am-type" value="modificative" class="w-4 h-4 text-purple-600 focus:ring-purple-500"> Modificative (Adv)
                             </label>
                         </div>
-                        <div class="flex items-center gap-2 border-l border-stone-300 pl-4">
-                            <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
-                            <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
-                                <option value="">None</option>
-                                <option value="i">i- (Superlative of Superiority)</option>
-                                <option value="v">v- (Excessive)</option>
-                                <option value="e">e- (Comparative of Superiority)</option>
-                                <option value="u">u- (Equative)</option>
-                                <option value="o">o- (Comparative of Inferiority)</option>
-                                <option value="w">w- (Deficient)</option>
-                                <option value="a">a- (Superlative of Inferiority)</option>
-                            </select>
+                        <div class="border border-stone-300 p-2 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
+                                    <option value="">None</option>
+                                    <option value="i">i- (Superlative of Superiority)</option>
+                                    <option value="v">v- (Excessive)</option>
+                                    <option value="e">e- (Comparative of Superiority)</option>
+                                    <option value="u">u- (Equative)</option>
+                                    <option value="o">o- (Comparative of Inferiority)</option>
+                                    <option value="w">w- (Deficient)</option>
+                                    <option value="a">a- (Superlative of Inferiority)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
