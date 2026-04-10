@@ -8,8 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Chosen Palette: Warm Neutrals & Deep Blue (Heritage Bolak) -->
-    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, and the complex 'u' tool), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators with passive/perfect toggles, a Suffix Applier, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
-    <!-- Visualization & Content Choices: 1. Vowel System -> Goal: Inform/Organize -> Viz: Chart.js Scatter Plot -> Justification: Plots 7-vowel spatial structure. 2. Word Categories -> Goal: Inform/Organize -> Viz: Chart.js Doughnut Chart -> Justification: Shows absolute division of the language. 3. Shortword Grid -> Goal: Inform -> Viz: Tailwind CSS Grid Cards -> Justification: Breaks down grammar rules for Interjections, Connectives, Designatives, and Staffwords. 4. Lexicon -> Goal: Search/Filter/Action -> Viz: Interactive HTML Table with Action Buttons -> Justification: Efficient parsing of CSV entries with immediate links to derivation tools. 5. Conjugator/Applier/Derivator -> Goal: Apply/Change -> Viz: Dynamic HTML Output -> Justification: Interactively teaches the 'u' tool placement and suffix rules for nouns, verbs, and numbers. Method: Vanilla JS, Tailwind, Chart.js. -->
+    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, longword details, and the complex 'u' tool), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators with passive/perfect toggles, a Suffix Applier, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
+    <!-- Visualization & Content Choices: 1. Vowel System -> Goal: Inform/Organize -> Viz: Chart.js Scatter Plot -> Justification: Plots 7-vowel spatial structure. 2. Word Categories -> Goal: Inform/Organize -> Viz: Chart.js Doughnut Chart -> Justification: Shows absolute division of the language. 3. Shortword & Longword Grids -> Goal: Inform -> Viz: Tailwind CSS Grid Cards -> Justification: Breaks down grammar rules logically for all parts of speech. 4. Lexicon -> Goal: Search/Filter/Action -> Viz: Interactive HTML Table with Action Buttons -> Justification: Efficient parsing of CSV entries with immediate links to derivation tools. 5. Conjugator/Applier/Derivator -> Goal: Apply/Change -> Viz: Dynamic HTML Output -> Justification: Interactively teaches the 'u' tool placement and suffix rules for nouns, verbs, and numbers. Method: Vanilla JS, Tailwind, Chart.js. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <style>
@@ -259,6 +259,97 @@
                                 <li><strong class="text-indigo-700 w-10 inline-block">khu</strong> Positive interrogation (is it that...?)</li>
                                 <li><strong class="text-indigo-700 w-10 inline-block">u</strong> Plural / Virtual / Compounder</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Longword Classes -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-stone-800">Longword Classes in Detail</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Nouns & Numbers -->
+                    <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
+                            <h3 class="text-lg font-bold text-stone-800">Nouns & Numbers</h3>
+                        </div>
+                        <p class="text-sm text-stone-600 mb-4">Represent the precise roots of the language. They must begin with a Hard Onset (or the tool <code class="bg-stone-100 px-1 rounded">u</code>) and always finish with a Soft Coda (except <code class="bg-stone-100 px-1 rounded">zh</code> or <code class="bg-stone-100 px-1 rounded">j</code>).</p>
+                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2">
+                            <div>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Nouns (Roots)</span>
+                                <ul class="mt-1 space-y-1">
+                                    <li><strong class="text-amber-700">sen</strong> (identity / to be)</li>
+                                    <li><strong class="text-amber-700">phorz</strong> (power)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Numbers</span>
+                                <ul class="mt-1 space-y-1">
+                                    <li><strong class="text-amber-700">phwn</strong> (one)</li>
+                                    <li><strong class="text-amber-700">cen</strong> (ten)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Verbs -->
+                    <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">4+ LTRS</span>
+                            <h3 class="text-lg font-bold text-stone-800">Verbs</h3>
+                        </div>
+                        <p class="text-sm text-stone-600 mb-4">Derived from Noun roots by appending an open vowel (<code class="bg-stone-100 px-1 rounded">a, e, i, o, v, w</code>). They signify action or state with respect to time/tense.</p>
+                        <div class="bg-stone-50 rounded p-3 text-sm">
+                            <ul class="space-y-1">
+                                <li><strong class="text-blue-700 w-12 inline-block">lwbhi</strong> To love (always / eternal)</li>
+                                <li><strong class="text-blue-700 w-12 inline-block">lwbho</strong> To love (presently)</li>
+                                <li><strong class="text-blue-700 w-12 inline-block">lwbhe</strong> To have loved (past)</li>
+                                <li><strong class="text-blue-700 w-12 inline-block">lwbhv</strong> To usually love (habitual)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Attributives -->
+                    <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">5+ LTRS</span>
+                            <h3 class="text-lg font-bold text-stone-800">Attributives</h3>
+                        </div>
+                        <p class="text-sm text-stone-600 mb-4">Qualifying Adjectives and Participles. Created by adding the consonant <code class="bg-stone-100 px-1 rounded">j</code> to a verb form. Expresses quality or attributes.</p>
+                        <div class="bg-stone-50 rounded p-3 text-sm">
+                            <ul class="space-y-1">
+                                <li><strong class="text-emerald-700 w-10 inline-block">-ij</strong> Present Participle (Eternal)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block">-oj</strong> Present Participle (Transitory)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block">-ej</strong> Qualifying Adjective (General)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block">-wj</strong> Qualifying Adjective (Possibility)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Modificatives -->
+                    <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
+                            <h3 class="text-lg font-bold text-stone-800">Modificatives</h3>
+                        </div>
+                        <p class="text-sm text-stone-600 mb-4">Adverbs and Gerunds. Always finish with the consonant <code class="bg-stone-100 px-1 rounded">zh</code>. Simple adverbs are 3+ letters; derived gerunds are 5+ letters.</p>
+                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2">
+                            <div>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Adverbs</span>
+                                <ul class="mt-1 space-y-1">
+                                    <li><strong class="text-rose-700">mazh</strong> (very)</li>
+                                    <li><strong class="text-rose-700">cezh</strong> (here)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Gerunds (Suffix)</span>
+                                <ul class="mt-1 space-y-1">
+                                    <li><strong class="text-rose-700">-ezh</strong> (General)</li>
+                                    <li><strong class="text-rose-700">-ozh</strong> (Transitory)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
