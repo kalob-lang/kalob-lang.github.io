@@ -67,7 +67,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col overflow-x-hidden">
 
     <nav class="bg-white shadow-sm border-b border-stone-200 sticky top-0 z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -259,7 +259,7 @@
                     
                     <!-- Interjections -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">1-2 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Interjections</h3>
                             <button onclick="navigateToLexicon('Interjection')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -277,7 +277,7 @@
 
                     <!-- Connectives -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Connectives</h3>
                             <button onclick="navigateToLexicon('Connective')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -295,7 +295,7 @@
 
                     <!-- Designatives -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Designatives</h3>
                             <button onclick="navigateToLexicon('Designative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -325,7 +325,7 @@
 
                     <!-- Staffwords -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Staffwords</h3>
                             <button onclick="navigateToLexicon('Staffword')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -351,7 +351,7 @@
                     
                     <!-- Nouns & Numbers -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Nouns & Numbers</h3>
                             <button onclick="navigateToLexicon('Noun/Number')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -383,7 +383,7 @@
 
                     <!-- Verbs -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">4+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Verbs</h3>
                         </div>
@@ -402,7 +402,7 @@
 
                     <!-- Attributives -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">5+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Attributives</h3>
                         </div>
@@ -421,7 +421,7 @@
 
                     <!-- Modificatives -->
                     <div class="bg-white border border-stone-200 p-5 rounded-xl shadow-sm">
-                        <div class="flex items-center mb-3">
+                        <div class="flex flex-wrap items-center mb-3 gap-y-2">
                             <span class="bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Modificatives</h3>
                             <button onclick="navigateToLexicon('Modificative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
@@ -560,8 +560,8 @@
             </div>
 
             <div class="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden h-[600px] flex flex-col">
-                <div class="overflow-y-auto custom-scroll flex-grow">
-                    <table class="w-full text-left border-collapse relative">
+                <div class="overflow-y-auto overflow-x-auto custom-scroll flex-grow">
+                    <table class="w-full text-left border-collapse relative min-w-[500px]">
                         <thead class="sticky top-0 bg-stone-50 z-10 shadow-sm text-stone-500">
                             <tr class="text-sm uppercase tracking-wider border-b border-stone-200">
                                 <th class="p-4 font-semibold w-1/5">Kalob</th>
@@ -650,8 +650,8 @@
                             <div class="flex items-center gap-2">
                             <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
                             </div>
-                            <div class="flex items-center gap-2">
-                            <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
+                            <div class="flex items-center gap-2 min-w-0 w-full sm:w-auto">
+                            <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none w-full max-w-[200px] sm:max-w-none">
                                 <option value="">None</option>
                                 <option value="i">i- (Superlative of Superiority)</option>
                                 <option value="v">v- (Excessive)</option>
