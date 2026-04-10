@@ -108,13 +108,13 @@
                     <div class="mt-6 border-t border-stone-200 pt-5">
                         <h3 class="text-sm font-bold text-stone-500 uppercase tracking-wider mb-3">Grammatical Functions</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-stone-700">
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">a</span> <span>Singular, Future Tense, Duty Adj/Adv</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">e</span> <span>Plural, Past Tense, General Adj/Adv</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">i</span> <span>Prepositions, Eternal Tense, Eternal Adj/Adv</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">o</span> <span>Prepositions, Present Tense, Transitory Adj/Adv</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">v</span> <span>Conjunctions, Habitual Tense, Frequentative Adj/Adv</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">w</span> <span>Conjunctions, Hypothetical, Possibility Adj/Adv</span></div>
-                            <div class="sm:col-span-2 flex items-start mt-1 bg-orange-50 p-2 rounded border border-orange-100"><span class="font-bold text-orange-900 bg-orange-200 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">u</span> <span>Plural (suffix), Virtual/Compounder (prefix), Passive (infix)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">a</span> <span>Singular, Future Tense, Duty Adj/Adv, Least (Margretation)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">e</span> <span>Plural, Past Tense, General Adj/Adv, More (Margretation)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">i</span> <span>Prepositions, Eternal Tense, Eternal Adj/Adv, Most (Margretation)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">o</span> <span>Prepositions, Present Tense, Transitory Adj/Adv, Less (Margretation)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">v</span> <span>Conjunctions, Habitual Tense, Frequentative Adj/Adv, Too (Margretation)</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">w</span> <span>Conjunctions, Hypothetical, Possibility Adj/Adv, Insufficiently (Margretation)</span></div>
+                            <div class="sm:col-span-2 flex items-start mt-1 bg-orange-50 p-2 rounded border border-orange-100"><span class="font-bold text-orange-900 bg-orange-200 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">u</span> <span>Plural (suffix), Virtual/Compounder (prefix), Passive (infix), As/Equally (Margretation)</span></div>
                         </div>
                     </div>
                 </div>
@@ -571,17 +571,16 @@
                             </label>
                         </div>
                         <div class="flex items-center gap-2 border-l border-stone-300 pl-4">
-                            <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">Prefix:</label>
+                            <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
                             <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
                                 <option value="">None</option>
-                                <option value="u">u- (Equality)</option>
-                                <option value="nu">nu- (Negation)</option>
-                                <option value="au">au- (Duty)</option>
-                                <option value="eu">eu- (Possibility)</option>
-                                <option value="iu">iu- (Habit)</option>
-                                <option value="ou">ou- (Transitory)</option>
-                                <option value="vu">vu- (Ability/Slang)</option>
-                                <option value="wu">wu- (Intent/Meta)</option>
+                                <option value="i">i- (Superlative of Superiority)</option>
+                                <option value="v">v- (Excessive)</option>
+                                <option value="e">e- (Comparative of Superiority)</option>
+                                <option value="u">u- (Equative)</option>
+                                <option value="o">o- (Comparative of Inferiority)</option>
+                                <option value="w">w- (Deficient)</option>
+                                <option value="a">a- (Superlative of Inferiority)</option>
                             </select>
                         </div>
                     </div>
@@ -829,14 +828,13 @@
 
         const prefixMeanings = {
             '': '',
+            'i': 'the most ',
+            'v': 'too ',
+            'e': 'more ',
             'u': 'as/equally ',
-            'nu': 'not ',
-            'au': 'supposed to be ',
-            'eu': 'seemingly/failed ',
-            'iu': 'addictively/compelled ',
-            'ou': 'newly/just ',
-            'vu': 'slang/corrupted ',
-            'wu': 'figuratively '
+            'o': 'less ',
+            'w': 'insufficiently ',
+            'a': 'the least '
         };
 
         let vowelChartInst = null;
