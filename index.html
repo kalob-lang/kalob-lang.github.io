@@ -257,8 +257,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">1-2 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Interjections</h3>
-                            <!-- add a button that is aligned to the right edge of the card that navigates the user to the Lexicon tab with the Interjections selected as the part of speech in the dropdown -->
-                            
+                            <button onclick="navigateToLexicon('Interjection')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Express raw emotion or vague notions. They consist of a single vowel or the same vowel repeated. Written with an exclamation mark.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm">
@@ -276,6 +275,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Connectives</h3>
+                            <button onclick="navigateToLexicon('Connective')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Link words and clauses. Identifiable by their strict, exclusive vowel usage.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
@@ -293,6 +293,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Designatives</h3>
+                            <button onclick="navigateToLexicon('Designative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Articles, pronouns, and demonstratives. They utilize ONLY the vowel <strong>a</strong> (for singular) or <strong>e</strong> (for plural).</p>
                         <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
@@ -322,6 +323,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">2-4 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Staffwords</h3>
+                            <button onclick="navigateToLexicon('Staffword')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">"Oral gestures" that govern or bind meaning without attaching directly to the word. They must contain two different vowels OR end in <strong>u</strong>.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
@@ -346,6 +348,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Nouns & Numbers</h3>
+                            <button onclick="navigateToLexicon('Noun/Number')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Represent the precise roots of the language. They must begin with a Hard Onset (or the tool <code class="bg-stone-100 px-1 rounded">u</code>) and always finish with a Soft Coda (except <code class="bg-stone-100 px-1 rounded">zh</code> or <code class="bg-stone-100 px-1 rounded">j</code>).</p>
                         <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
@@ -405,6 +408,7 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">3+ LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Modificatives</h3>
+                            <button onclick="navigateToLexicon('Modificative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Adverbs and Gerunds. Always finish with the consonant <code class="bg-stone-100 px-1 rounded">zh</code>. Simple adverbs are 3+ letters; derived gerunds are 5+ letters.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
@@ -469,14 +473,13 @@
                 
                 <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                     <select id="pos-filter" class="px-4 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-stone-700">
-                        <option value="all">All Parts of Speech</option>
-                        <option value="Noun">Nouns / Roots</option>
-                        <option value="Pronoun">Pronouns (Designatives)</option>
-                        <option value="Adverb">Adverbs</option>
-                        <option value="Preposition">Prepositions</option>
-                        <option value="Conjunction">Conjunctions</option>
+                        <option value="all">All Classes</option>
+                        <option value="Noun/Number">Nouns & Numbers</option>
+                        <option value="Designative">Designatives</option>
+                        <option value="Modificative">Modificatives</option>
+                        <option value="Connective">Connectives</option>
                         <option value="Interjection">Interjections</option>
-                        <option value="Suffix">Terminations</option>
+                        <option value="Staffword">Staffwords</option>
                     </select>
                     <div class="relative w-full md:w-64">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-stone-400">&#x1F50D;</span>
@@ -491,7 +494,7 @@
                         <thead class="sticky top-0 bg-stone-50 z-10 shadow-sm text-stone-500">
                             <tr class="text-sm uppercase tracking-wider border-b border-stone-200">
                                 <th class="p-4 font-semibold w-1/5">Kalob</th>
-                                <th class="p-4 font-semibold w-1/5">Part of Speech</th>
+                                <th class="p-4 font-semibold w-1/5">Class</th>
                                 <th class="p-4 font-semibold w-2/5">English Definition & Notes</th>
                                 <th title="Click on the tool buttons present in some rows to select a word for derivation." class="p-4 font-semibold w-1/5 text-right">Tools (Nouns)</th>
                             </tr>
@@ -885,6 +888,20 @@
             });
         }
 
+        window.navigateToLexicon = function(cat) {
+            const lexiconTab = document.querySelector('.tab-btn[data-target="lexicon"]');
+            if (lexiconTab) lexiconTab.click();
+
+            setTimeout(() => {
+                const filter = document.getElementById('pos-filter');
+                if (filter) {
+                    filter.value = cat;
+                    filter.dispatchEvent(new Event('change'));
+                }
+                document.getElementById('lexicon').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        };
+
         // Global function attached to window to handle button clicks inside dynamically rendered HTML
         window.sendToTool = function(word, toolType) {
             // Strip out non-alphabetic characters (like the ! in w!) to get a clean root
@@ -1049,7 +1066,7 @@
 
             state.lexiconData.forEach(item => {
                 const matchSearch = item.word.toLowerCase().includes(searchVal) || item.eng.toLowerCase().includes(searchVal);
-                const matchFilter = filterVal === 'all' || item.pos === filterVal;
+                const matchFilter = filterVal === 'all' || item.cat === filterVal;
 
                 if (matchSearch && matchFilter) {
                     count++;
@@ -1068,7 +1085,7 @@
 
                     tr.innerHTML = `
                         <td class="p-4 font-bold text-blue-900">${item.word}</td>
-                        <td class="p-4"><span class="px-2 py-1 bg-stone-100 rounded text-xs text-stone-600 border border-stone-200 shadow-sm">${item.pos}</span></td>
+                        <td class="p-4"><span class="px-2 py-1 bg-stone-100 rounded text-xs text-stone-600 border border-stone-200 shadow-sm">${item.cat}</span></td>
                         <td class="p-4 text-stone-700">${item.eng}</td>
                         <td class="p-4 text-right space-x-1 whitespace-nowrap">
                             ${toolsHTML}
