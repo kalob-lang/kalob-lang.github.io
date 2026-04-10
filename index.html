@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Chosen Palette: Warm Neutrals & Deep Blue (Heritage Bolak) -->
-    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, longword details, and the complex 'u' tool), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators, Suffix Applier, a new A/M Conjugator, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
+    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, longword details, the complex 'u' tool, and Margretation), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators, Suffix Applier, a new A/M Conjugator, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
     <!-- Visualization & Content Choices: 1. Vowel System -> Goal: Inform/Organize -> Viz: Chart.js Scatter Plot + HTML Grid -> Justification: Plots 7-vowel spatial structure and maps their grammatical roles. 2. Word Categories -> Goal: Inform/Organize -> Viz: Chart.js Doughnut Chart -> Justification: Shows absolute division of the language. 3. Shortword & Longword Grids -> Goal: Inform -> Viz: Tailwind CSS Grid Cards -> Justification: Breaks down grammar rules logically. 4. Lexicon -> Goal: Search/Filter/Action -> Viz: Interactive HTML Table with Action Buttons -> Justification: Efficient parsing of CSV entries with immediate links to derivation tools. 5. Conjugator/Applier/Derivator -> Goal: Apply/Change -> Viz: Dynamic HTML Output -> Justification: Interactively teaches the 'u' tool placement, prefixes, and suffix rules for nouns, verbs, attributives, and numbers. Method: Vanilla JS, Tailwind, Chart.js. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
@@ -461,6 +461,53 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Margretation Deep Dive -->
+            <div class="bg-blue-900 text-white p-6 rounded-xl shadow-md border border-blue-800 mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">Margretation: Degrees of Intensity</h2>
+                <p class="text-blue-100 mb-6 text-sm">
+                    Margretation is a rule used to express different quantitative shades, degrees of intensity, or degrees of comparison for abstract thoughts.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- The Process -->
+                    <div class="bg-blue-950 p-4 rounded-lg border border-blue-800">
+                        <h3 class="font-semibold text-emerald-300 mb-2 border-b border-blue-800 pb-2">1. The Process</h3>
+                        <p class="text-sm text-blue-200 mb-3">
+                            Mechanically, the rule works by taking a single interjection (a vowel) and prefixing it to a precise word (a Longword, such as a noun, verb, adjective, or adverb) to instantly modulate its intensity.
+                        </p>
+                        <div class="bg-blue-900 p-2 rounded text-xs space-y-1 border border-blue-700">
+                            <div class="flex justify-between text-blue-300 mb-1 pb-1 border-b border-blue-800"><span>Root: <strong class="text-white">phred</strong> (fear)</span></div>
+                            <div class="flex justify-between"><span><strong class="text-emerald-400">o</strong>phred</span> <span class="text-blue-200">timidity</span></div>
+                            <div class="flex justify-between"><span><strong class="text-emerald-400">i</strong>phred</span> <span class="text-blue-200">terror/cowardice</span></div>
+                            <div class="flex justify-between pt-1 mt-1 border-t border-blue-800/50"><span><strong class="text-emerald-400">o</strong>phredej</span> <span class="text-blue-200">less fearful</span></div>
+                            <div class="flex justify-between"><span><strong class="text-emerald-400">i</strong>phredej</span> <span class="text-blue-200">most fearful</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- The Scale -->
+                    <div class="bg-blue-950 p-4 rounded-lg border border-blue-800">
+                        <h3 class="font-semibold text-purple-300 mb-2 border-b border-blue-800 pb-2">2. The 7-Vowel Scale</h3>
+                        <ul class="text-xs text-blue-200 space-y-1.5">
+                            <li><strong class="text-white inline-block w-4">i</strong> <span class="text-purple-300 font-medium">Paroxysm:</span> <em class="text-blue-100">ilwbh</em> (Idolatry / Fanatical)</li>
+                            <li><strong class="text-white inline-block w-4">v</strong> <span class="text-purple-300 font-medium">Excessive (Pejorative):</span> <em class="text-blue-100">vlwbh</em> (Obsession)</li>
+                            <li><strong class="text-white inline-block w-4">e</strong> <span class="text-purple-300 font-medium">Exuberance:</span> <em class="text-blue-100">elwbh</em> (Passion / Deep)</li>
+                            <li><strong class="text-white inline-block w-4">u</strong> <span class="text-purple-300 font-medium">Parity/Optimal:</span> <em class="text-blue-100">ulwbh</em> (Mutual / Balanced)</li>
+                            <li><strong class="text-white inline-block w-4">o</strong> <span class="text-purple-300 font-medium">Inclination:</span> <em class="text-blue-100">olwbh</em> (Fondness / Crush)</li>
+                            <li><strong class="text-white inline-block w-4">w</strong> <span class="text-purple-300 font-medium">Lacking (Pejorative):</span> <em class="text-blue-100">wlwbh</em> (Neglect / Starved)</li>
+                            <li><strong class="text-white inline-block w-4">a</strong> <span class="text-purple-300 font-medium">Absolute Lack:</span> <em class="text-blue-100">alwbh</em> (Apathy / Indifferent)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Limitations -->
+                    <div class="bg-blue-950 p-4 rounded-lg border border-blue-800">
+                        <h3 class="font-semibold text-rose-300 mb-2 border-b border-blue-800 pb-2">3. Important Limitations</h3>
+                        <ul class="text-sm text-blue-200 space-y-3 list-disc pl-4 pr-2">
+                            <li><strong>Abstract Only:</strong> Can only be applied to abstract notions or collective nouns. It cannot be used on concrete physical objects (e.g., you cannot have "passionately bread"). Physical size adjustments use different suffixes.</li>
+                            <li><strong>Not Active Negation:</strong> The prefix <strong class="text-rose-400">a-</strong> does not equate to a strict, active negation (which must use the separate shortword <code class="bg-blue-800 px-1 rounded">nu</code>), but rather implies an indifference or lack of feeling.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- LEXICON SECTION -->
@@ -577,19 +624,19 @@
                         </div>
                         <div class="border border-stone-300 p-2 rounded-lg">
                             <div class="flex items-center gap-2">
-                                <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
+                            <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">MARGRETATION PREFIX:</label>
                             </div>
                             <div class="flex items-center gap-2">
-                                <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
-                                    <option value="">None</option>
-                                    <option value="i">i- (Superlative of Superiority)</option>
-                                    <option value="v">v- (Excessive)</option>
-                                    <option value="e">e- (Comparative of Superiority)</option>
-                                    <option value="u">u- (Equative)</option>
-                                    <option value="o">o- (Comparative of Inferiority)</option>
-                                    <option value="w">w- (Deficient)</option>
-                                    <option value="a">a- (Superlative of Inferiority)</option>
-                                </select>
+                            <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
+                                <option value="">None</option>
+                                <option value="i">i- (Superlative of Superiority)</option>
+                                <option value="v">v- (Excessive)</option>
+                                <option value="e">e- (Comparative of Superiority)</option>
+                                <option value="u">u- (Equative)</option>
+                                <option value="o">o- (Comparative of Inferiority)</option>
+                                <option value="w">w- (Deficient)</option>
+                                <option value="a">a- (Superlative of Inferiority)</option>
+                            </select>
                             </div>
                         </div>
                     </div>
