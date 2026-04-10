@@ -216,7 +216,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
                 <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-stone-100">
                     <h2 class="text-xl font-semibold mb-4 text-blue-900">Vocabulary Division</h2>
-                    <p class="text-stone-600 mb-6 text-sm">All vocabulary is strictly divided into Shortwords (grammar) and Longwords (content).</p>
+                    <p class="text-stone-600 mb-2 text-sm">All non-derived words are divided into Shortwords (grammar) and Longwords (content).</p>
                     <div class="chart-container" style="height: 250px;">
                         <canvas id="categoryChart"></canvas>
                     </div>
@@ -226,9 +226,14 @@
                     <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl">
                         <h3 class="font-bold text-blue-900 text-lg mb-2">Category 1: Shortwords</h3>
                         <p class="text-xs text-blue-800 mb-4 uppercase tracking-wide">1 to 4 letters &bull; Grammar/Notions</p>
-                        <ul class="space-y-3 text-sm text-stone-700">
+                        <ul class="space-y-3 text-md text-stone-700">
                             <li><strong>Interjections (1-2):</strong> Single/repeated vowel.</li>
-                            <li><strong>Connectives (2-4):</strong> Prepositions (only <strong>i, o</strong>) or Conjunctions (only <strong>v, w</strong>).</li>
+                            <li><strong>Connectives (2-4):</strong>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Prepositions (only <strong>i, o</strong>)</li>
+                                    <li>Conjunctions (only <strong>v, w</strong>)</li>
+                                </ul>
+                            </li>
                             <li><strong>Designatives (2-4):</strong> Articles/Pronouns. Vowels <strong>a</strong> (Sg) or <strong>e</strong> (Pl). <em>(e.g., me = I, ne = We)</em></li>
                             <li><strong>Staffwords (2-4):</strong> Oral gestures. Two diff. vowels or ends in <strong>u</strong>.</li>
                         </ul>
@@ -237,7 +242,7 @@
                     <div class="bg-orange-50 border border-orange-100 p-5 rounded-xl">
                         <h3 class="font-bold text-orange-900 text-lg mb-2">Category 2: Longwords</h3>
                         <p class="text-xs text-orange-800 mb-4 uppercase tracking-wide">3+ letters &bull; Precise Content</p>
-                        <ul class="space-y-3 text-sm text-stone-700">
+                        <ul class="space-y-3 text-md text-stone-700">
                             <li><strong>Nouns & Numbers (3+):</strong> End with a Soft Coda (except zh/j).</li>
                             <li><strong>Verbs (4+):</strong> Root + open vowel tense (a, e, i, o, v, w).</li>
                             <li><strong>Attributives (5+):</strong> Adjectives/Participles. End in <strong>-j</strong>. <em>(e.g., -oj, -wj)</em></li>
@@ -280,9 +285,9 @@
                         <p class="text-sm text-stone-600 mb-4">Link words and clauses. Identifiable by their strict, exclusive vowel usage.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-2">
-                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Prepositions (only i, o):</span><br>
-                                    <span class="text-teal-700 font-medium">ci</span> (during), <span class="text-teal-700 font-medium">in</span> (inside), <span class="text-teal-700 font-medium">ki</span> (with), <span class="text-teal-700 font-medium">so</span> (without)</li>
-                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Conjunctions (only v, w):</span><br>
+                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Prepositions (only i, o):</span><br><br>
+                                    <span class="text-teal-700 font-medium">ci</span> (during), <span class="text-teal-700 font-medium">in</span> (inside), <span class="text-teal-700 font-medium">ki</span> (with), <span class="text-teal-700 font-medium">so</span> (without)</li><br>
+                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Conjunctions (only v, w):</span><br><br>
                                     <span class="text-teal-700 font-medium">pv</span> (but), <span class="text-teal-700 font-medium">vd</span> (and), <span class="text-teal-700 font-medium">chw</span> (because), <span class="text-teal-700 font-medium">wbh</span> (if)</li>
                             </ul>
                         </div>
@@ -331,7 +336,8 @@
                                 <li><strong class="text-indigo-700 w-10 inline-block text-base">nu</strong> Indicates negation (not)</li>
                                 <li><strong class="text-indigo-700 w-10 inline-block text-base">su</strong> Reflexive positive pronoun</li>
                                 <li><strong class="text-indigo-700 w-10 inline-block text-base">khu</strong> Positive interrogation (is it that...?)</li>
-                                <li><strong class="text-indigo-700 w-10 inline-block text-base">u</strong> Plural / Virtual / Compounder</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">pu</strong> Supremacy, primacy (archi-)</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">mu</strong> Protocol formulas (Your Majesty, etc.)</li>
                             </ul>
                         </div>
                     </div>
@@ -357,12 +363,18 @@
                                 <ul class="mt-1 space-y-1">
                                     <li><strong class="text-amber-700 text-base">sen</strong> (identity / to be)</li>
                                     <li><strong class="text-amber-700 text-base">phorz</strong> (power)</li>
+                                    <li><strong class="text-amber-700 text-base">kind</strong> (child / offspring)</li>
+                                    <li><strong class="text-amber-700 text-base">spand</strong> (to expand)</li>
+                                    <li><strong class="text-amber-700 text-base">manjh</strong> (to eat / food)</li>
                                 </ul>
                             </div>
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Numbers</span>
                                 <ul class="mt-1 space-y-1">
                                     <li><strong class="text-amber-700 text-base">phwn</strong> (one)</li>
+                                    <li><strong class="text-amber-700 text-base">tvbh</strong> (two)</li>
+                                    <li><strong class="text-amber-700 text-base">threz</strong> (three)</li>
+                                    <li><strong class="text-amber-700 text-base">qad</strong> (four)</li>
                                     <li><strong class="text-amber-700 text-base">cen</strong> (ten)</li>
                                 </ul>
                             </div>
@@ -378,10 +390,12 @@
                         <p class="text-sm text-stone-600 mb-4">Derived from Noun roots by appending an open vowel (<code class="bg-stone-100 px-1 rounded">a, e, i, o, v, w</code>). They signify action or state with respect to time/tense.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
-                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhi</strong> To love (always / eternal)</li>
-                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbho</strong> To love (presently)</li>
                                 <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhe</strong> To have loved (past)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhi</strong> To always love (eternal)</li>
                                 <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhv</strong> To usually love (habitual)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbho</strong> To love (present)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhw</strong> To hypothetically love (conditional)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbha</strong> To ought to love (future)</li>
                             </ul>
                         </div>
                     </div>
@@ -396,8 +410,10 @@
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-ij</strong> Present Participle (Eternal)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-vj</strong> Present Participle (Frequentative)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-oj</strong> Present Participle (Transitory)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-ej</strong> Qualifying Adjective (General)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-aj</strong> Qualifying Adjective (Duty)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-wj</strong> Qualifying Adjective (Possibility)</li>
                             </ul>
                         </div>
@@ -413,17 +429,25 @@
                         <p class="text-sm text-stone-600 mb-4">Adverbs and Gerunds. Always finish with the consonant <code class="bg-stone-100 px-1 rounded">zh</code>. Simple adverbs are 3+ letters; derived gerunds are 5+ letters.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
-                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Adverbs</span>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Simple Adverbs</span>
                                 <ul class="mt-1 space-y-1">
                                     <li><strong class="text-rose-700 text-base">mazh</strong> (very)</li>
                                     <li><strong class="text-rose-700 text-base">cezh</strong> (here)</li>
+                                    <li><strong class="text-rose-700 text-base">phrozh</strong> (early)</li>
+                                    <li><strong class="text-rose-700 text-base">tarzh</strong> (late)</li>
+                                    <li><strong class="text-rose-700 text-base">pazh</strong> (enough)</li>
+                                    <li><strong class="text-rose-700 text-base">penzh</strong> (well)</li>
                                 </ul>
                             </div>
                             <div>
-                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Gerunds (Suffix)</span>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Derived</span>
                                 <ul class="mt-1 space-y-1">
+                                    <li><strong class="text-rose-700 text-base">-izh</strong> (Participle - Eternal)</li>
+                                    <li><strong class="text-rose-700 text-base">-vzh</strong> (Participle - Frequentative)</li>
+                                    <li><strong class="text-rose-700 text-base">-ozh</strong> (Participle - Transitory)</li>
                                     <li><strong class="text-rose-700 text-base">-ezh</strong> (General)</li>
-                                    <li><strong class="text-rose-700 text-base">-ozh</strong> (Transitory)</li>
+                                    <li><strong class="text-rose-700 text-base">-azh</strong> (Duty)</li>
+                                    <li><strong class="text-rose-700 text-base">-wzh</strong> (Possibility)</li>
                                 </ul>
                             </div>
                         </div>
@@ -927,23 +951,65 @@
                 { word: 'khw', cat: 'Connective', pos: 'Conjunction', eng: 'When (Subordinating)' },
                 
                 // Modificative
-                { word: 'kyorzh', cat: 'Modificative', pos: 'Adverb', eng: 'Now (Time)' },
-                { word: 'kezh', cat: 'Modificative', pos: 'Adverb', eng: 'Yesterday (Time)' },
-                { word: 'morzh', cat: 'Modificative', pos: 'Adverb', eng: 'Tomorrow (Time)' },
-                { word: 'cywzh', cat: 'Modificative', pos: 'Adverb', eng: 'Immediately (Time)' },
-                { word: 'phrozh', cat: 'Modificative', pos: 'Adverb', eng: 'Early (Time)' },
-                { word: 'cezh', cat: 'Modificative', pos: 'Adverb', eng: 'Here (Place)' },
-                { word: 'lazh', cat: 'Modificative', pos: 'Adverb', eng: 'There, yonder (Place)' },
-                { word: 'khilzh', cat: 'Modificative', pos: 'Adverb', eng: 'Far (Place)' },
-                { word: 'phyezh', cat: 'Modificative', pos: 'Adverb', eng: 'Everywhere (Place)' },
-                { word: 'mizh', cat: 'Modificative', pos: 'Adverb', eng: 'Elsewhere (Place)' },
-                { word: 'mazh', cat: 'Modificative', pos: 'Adverb', eng: 'Very, much (Degree)' },
-                { word: 'plizh', cat: 'Modificative', pos: 'Adverb', eng: 'More (Degree)' },
-                { word: 'lezh', cat: 'Modificative', pos: 'Adverb', eng: 'Less (Degree)' },
-                { word: 'pazh', cat: 'Modificative', pos: 'Adverb', eng: 'Enough (Degree)' },
-                { word: 'penzh', cat: 'Modificative', pos: 'Adverb', eng: 'Well (Manner)' },
-                { word: 'lozh', cat: 'Modificative', pos: 'Adverb', eng: 'Badly (Manner)' },
-                { word: 'plezh', cat: 'Modificative', pos: 'Adverb', eng: 'Please' },
+                { word: 'cazh', cat: 'Modificative', pos: 'Adverb', eng: 'however' },
+                { word: 'cezh', cat: 'Modificative', pos: 'Adverb', eng: 'here' },
+                { word: 'cywzh', cat: 'Modificative', pos: 'Adverb', eng: 'immediately' },
+                { word: 'kazh', cat: 'Modificative', pos: 'Adverb', eng: 'already' },
+                { word: 'kezh', cat: 'Modificative', pos: 'Adverb', eng: 'yesterday' },
+                { word: 'khilzh', cat: 'Modificative', pos: 'Adverb', eng: 'far' },
+                { word: 'khozh', cat: 'Modificative', pos: 'Adverb', eng: 'hardly' },
+                { word: 'klezh', cat: 'Modificative', pos: 'Adverb', eng: 'how' },
+                { word: 'kozh', cat: 'Modificative', pos: 'Adverb', eng: 'for a long time' },
+                { word: 'kyorzh', cat: 'Modificative', pos: 'Adverb', eng: 'now' },
+                { word: 'lanzh', cat: 'Modificative', pos: 'Adverb', eng: 'formerly, of old' },
+                { word: 'lazh', cat: 'Modificative', pos: 'Adverb', eng: 'there, yonder' },
+                { word: 'lezh', cat: 'Modificative', pos: 'Adverb', eng: 'less' },
+                { word: 'lozh', cat: 'Modificative', pos: 'Adverb', eng: 'badly' },
+                { word: 'mazh', cat: 'Modificative', pos: 'Adverb', eng: 'very, much' },
+                { word: 'mezh', cat: 'Modificative', pos: 'Adverb', eng: 'expressly' },
+                { word: 'mizh', cat: 'Modificative', pos: 'Adverb', eng: 'elsewhere' },
+                { word: 'morzh', cat: 'Modificative', pos: 'Adverb', eng: 'tomorrow' },
+                { word: 'mwzh', cat: 'Modificative', pos: 'Adverb', eng: 'how much, as' },
+                { word: 'nizh', cat: 'Modificative', pos: 'Adverb', eng: 'no more' },
+                { word: 'nolzh', cat: 'Modificative', pos: 'Adverb', eng: 'not only' },
+                { word: 'nozh', cat: 'Modificative', pos: 'Adverb', eng: 'not, point' },
+                { word: 'pazh', cat: 'Modificative', pos: 'Adverb', eng: 'enough' },
+                { word: 'penzh', cat: 'Modificative', pos: 'Adverb', eng: 'well' },
+                { word: 'phazh', cat: 'Modificative', pos: 'Adverb', eng: 'almost' },
+                { word: 'phezh', cat: 'Modificative', pos: 'Adverb', eng: 'perhaps' },
+                { word: 'philzh', cat: 'Modificative', pos: 'Adverb', eng: 'willingly' },
+                { word: 'phinzh', cat: 'Modificative', pos: 'Adverb', eng: 'finally' },
+                { word: 'phizh', cat: 'Modificative', pos: 'Adverb', eng: 'sometimes' },
+                { word: 'phozh', cat: 'Modificative', pos: 'Adverb', eng: 'why' },
+                { word: 'phrozh', cat: 'Modificative', pos: 'Adverb', eng: 'early' },
+                { word: 'phvnzh', cat: 'Modificative', pos: 'Adverb', eng: 'even' },
+                { word: 'phyezh', cat: 'Modificative', pos: 'Adverb', eng: 'everywhere' },
+                { word: 'plezh', cat: 'Modificative', pos: 'Adverb', eng: 'please' },
+                { word: 'plizh', cat: 'Modificative', pos: 'Adverb', eng: 'more' },
+                { word: 'pozh', cat: 'Modificative', pos: 'Adverb', eng: 'only, but' },
+                { word: 'pvzh', cat: 'Modificative', pos: 'Adverb', eng: 'little' },
+                { word: 'pwzh', cat: 'Modificative', pos: 'Adverb', eng: 'about' },
+                { word: 'qhenzh', cat: 'Modificative', pos: 'Adverb', eng: 'when?' },
+                { word: 'qherzh', cat: 'Modificative', pos: 'Adverb', eng: 'where' },
+                { word: 'qizh', cat: 'Modificative', pos: 'Adverb', eng: 'all, quite' },
+                { word: 'rizh', cat: 'Modificative', pos: 'Adverb', eng: 'too much' },
+                { word: 'rolzh', cat: 'Modificative', pos: 'Adverb', eng: 'never' },
+                { word: 'sanzh', cat: 'Modificative', pos: 'Adverb', eng: 'if, so much' },
+                { word: 'sezh', cat: 'Modificative', pos: 'Adverb', eng: 'together, at once' },
+                { word: 'sozh', cat: 'Modificative', pos: 'Adverb', eng: 'also, so' },
+                { word: 'spezh', cat: 'Modificative', pos: 'Adverb', eng: 'especially' },
+                { word: 'sprvzh', cat: 'Modificative', pos: 'Adverb', eng: 'often' },
+                { word: 'stezh', cat: 'Modificative', pos: 'Adverb', eng: 'always' },
+                { word: 'svzh', cat: 'Modificative', pos: 'Adverb', eng: 'soon' },
+                { word: 'tanzh', cat: 'Modificative', pos: 'Adverb', eng: 'as much, so much' },
+                { word: 'tarzh', cat: 'Modificative', pos: 'Adverb', eng: 'late' },
+                { word: 'tazh', cat: 'Modificative', pos: 'Adverb', eng: 'rather' },
+                { word: 'tenzh', cat: 'Modificative', pos: 'Adverb', eng: 'then' },
+                { word: 'therzh', cat: 'Modificative', pos: 'Adverb', eng: 'otherwise' },
+                { word: 'thwzh', cat: 'Modificative', pos: 'Adverb', eng: 'thus, likewise' },
+                { word: 'tizh', cat: 'Modificative', pos: 'Adverb', eng: 'still' },
+                { word: 'tozh', cat: 'Modificative', pos: 'Adverb', eng: 'first' },
+                { word: 'tyezh', cat: 'Modificative', pos: 'Adverb', eng: 'today' },
                 
                 // NOUNS / NUMBERS
                 { word: 'sen', cat: 'Noun/Number', pos: 'Noun', eng: 'To be (identity) / is / yes / true' },
