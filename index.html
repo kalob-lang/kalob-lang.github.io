@@ -257,6 +257,8 @@
                         <div class="flex items-center mb-3">
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold mr-3 tracking-widest">1-2 LTRS</span>
                             <h3 class="text-lg font-bold text-stone-800">Interjections</h3>
+                            <!-- add a button that is aligned to the right edge of the card that navigates the user to the Lexicon tab with the Interjections selected as the part of speech in the dropdown -->
+                            
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Express raw emotion or vague notions. They consist of a single vowel or the same vowel repeated. Written with an exclamation mark.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm">
@@ -689,94 +691,88 @@
         const state = {
             activeTab: 'phonology',
             lexiconData: [
-                // PRONOUNS
-                { word: 'me', pos: 'Pronoun', eng: 'I (1st Person Sg - Nom)' },
-                { word: 'te', pos: 'Pronoun', eng: 'Thou (2nd Person Fam Sg - Nom)' },
-                { word: 'the', pos: 'Pronoun', eng: 'You (2nd Person Resp Sg - Nom)' },
-                { word: 'se', pos: 'Pronoun', eng: 'He/She/They (3rd Person Anim Sg - Nom)' },
-                { word: 'le', pos: 'Pronoun', eng: 'It (3rd Person N Sg - Nom)' },
-                { word: 'zhe', pos: 'Pronoun', eng: 'It (3rd Person Abs Sg - Nom)' },
-                { word: 'ne', pos: 'Pronoun', eng: 'We (1st Person Pl - Nom)' },
-                { word: 've', pos: 'Pronoun', eng: 'You all (2nd Person Fam Pl - Nom)' },
-                { word: 'dhe', pos: 'Pronoun', eng: 'You all (2nd Person Resp Pl - Nom)' },
-                { word: 'pe', pos: 'Pronoun', eng: 'They (3rd Person Anim Pl - Nom)' },
-                { word: 'de', pos: 'Pronoun', eng: 'They (3rd Person N Pl - Nom)' },
-                { word: 'jhe', pos: 'Pronoun', eng: 'They (3rd Person Abs Pl - Nom)' },
-                { word: 'an', pos: 'Pronoun', eng: 'A/an (Indef. Article Sg)' },
-                { word: 'ane', pos: 'Pronoun', eng: 'Some/any (Indef. Article Pl)' },
-                { word: 'azh', pos: 'Pronoun', eng: 'This/That (Demonstrative Sg)' },
-                { word: 'ka', pos: 'Pronoun', eng: 'Who? What? (Interrogative)' },
-                { word: 'ra', pos: 'Pronoun', eng: 'Who, Which, That (Relative)' },
+                // Designative
+                { word: 'me', cat: 'Designative', pos: 'Pronoun', eng: 'I (1st Person Sg - Nom)' },
+                { word: 'te', cat: 'Designative', pos: 'Pronoun', eng: 'Thou (2nd Person Fam Sg - Nom)' },
+                { word: 'the', cat: 'Designative', pos: 'Pronoun', eng: 'You (2nd Person Resp Sg - Nom)' },
+                { word: 'se', cat: 'Designative', pos: 'Pronoun', eng: 'He/She/They (3rd Person Anim Sg - Nom)' },
+                { word: 'le', cat: 'Designative', pos: 'Pronoun', eng: 'It (3rd Person N Sg - Nom)' },
+                { word: 'zhe', cat: 'Designative', pos: 'Pronoun', eng: 'It (3rd Person Abs Sg - Nom)' },
+                { word: 'ne', cat: 'Designative', pos: 'Pronoun', eng: 'We (1st Person Pl - Nom)' },
+                { word: 've', cat: 'Designative', pos: 'Pronoun', eng: 'You all (2nd Person Fam Pl - Nom)' },
+                { word: 'dhe', cat: 'Designative', pos: 'Pronoun', eng: 'You all (2nd Person Resp Pl - Nom)' },
+                { word: 'pe', cat: 'Designative', pos: 'Pronoun', eng: 'They (3rd Person Anim Pl - Nom)' },
+                { word: 'de', cat: 'Designative', pos: 'Pronoun', eng: 'They (3rd Person N Pl - Nom)' },
+                { word: 'jhe', cat: 'Designative', pos: 'Pronoun', eng: 'They (3rd Person Abs Pl - Nom)' },
+                { word: 'an', cat: 'Designative', pos: 'Pronoun', eng: 'A/an (Indef. Article Sg)' },
+                { word: 'ane', cat: 'Designative', pos: 'Pronoun', eng: 'Some/any (Indef. Article Pl)' },
+                { word: 'azh', cat: 'Designative', pos: 'Pronoun', eng: 'This/That (Demonstrative Sg)' },
+                { word: 'ka', cat: 'Designative', pos: 'Pronoun', eng: 'Who? What? (Interrogative)' },
+                { word: 'ra', cat: 'Designative', pos: 'Pronoun', eng: 'Who, Which, That (Relative)' },
                 
                 // CONNECTIVES
-                { word: 'ci', pos: 'Preposition', eng: 'During' },
-                { word: 'chi', pos: 'Preposition', eng: 'Here is (Presentative)' },
-                { word: 'co', pos: 'Preposition', eng: 'Since (distance)' },
-                { word: 'id', pos: 'Preposition', eng: 'At (fixation)' },
-                { word: 'in', pos: 'Preposition', eng: 'In, inside' },
-                { word: 'ib', pos: 'Preposition', eng: 'On, above' },
-                { word: 'ibh', pos: 'Preposition', eng: 'Below, at the bottom' },
-                { word: 'ij', pos: 'Preposition', eng: 'Before, in front' },
-                { word: 'iz', pos: 'Preposition', eng: 'Around' },
-                { word: 'ki', pos: 'Preposition', eng: 'With' },
-                { word: 'so', pos: 'Preposition', eng: 'Without' },
+                { word: 'ci', cat: 'Connective', pos: 'Preposition', eng: 'During' },
+                { word: 'chi', cat: 'Connective', pos: 'Preposition', eng: 'Here is (Presentative)' },
+                { word: 'co', cat: 'Connective', pos: 'Preposition', eng: 'Since (distance)' },
+                { word: 'id', cat: 'Connective', pos: 'Preposition', eng: 'At (fixation)' },
+                { word: 'in', cat: 'Connective', pos: 'Preposition', eng: 'In, inside' },
+                { word: 'ib', cat: 'Connective', pos: 'Preposition', eng: 'On, above' },
+                { word: 'ibh', cat: 'Connective', pos: 'Preposition', eng: 'Below, at the bottom' },
+                { word: 'ij', cat: 'Connective', pos: 'Preposition', eng: 'Before, in front' },
+                { word: 'iz', cat: 'Connective', pos: 'Preposition', eng: 'Around' },
+                { word: 'ki', cat: 'Connective', pos: 'Preposition', eng: 'With' },
+                { word: 'so', cat: 'Connective', pos: 'Preposition', eng: 'Without' },
                 
-                { word: 'vd', pos: 'Conjunction', eng: 'And' },
-                { word: 'cv', pos: 'Conjunction', eng: 'Or' },
-                { word: 'pv', pos: 'Conjunction', eng: 'But' },
-                { word: 'kv', pos: 'Conjunction', eng: 'Therefore' },
-                { word: 'slv', pos: 'Conjunction', eng: 'Consequently' },
-                { word: 'stv', pos: 'Conjunction', eng: 'Then, next' },
-                { word: 'sv', pos: 'Conjunction', eng: 'As, same as' },
-                { word: 'chw', pos: 'Conjunction', eng: 'Because (Subordinating)' },
-                { word: 'wbh', pos: 'Conjunction', eng: 'If (Subordinating)' },
-                { word: 'dhw', pos: 'Conjunction', eng: 'Although (Subordinating)' },
-                { word: 'khw', pos: 'Conjunction', eng: 'When (Subordinating)' },
+                { word: 'vd', cat: 'Connective', pos: 'Conjunction', eng: 'And' },
+                { word: 'cv', cat: 'Connective', pos: 'Conjunction', eng: 'Or' },
+                { word: 'pv', cat: 'Connective', pos: 'Conjunction', eng: 'But' },
+                { word: 'kv', cat: 'Connective', pos: 'Conjunction', eng: 'Therefore' },
+                { word: 'slv', cat: 'Connective', pos: 'Conjunction', eng: 'Consequently' },
+                { word: 'stv', cat: 'Connective', pos: 'Conjunction', eng: 'Then, next' },
+                { word: 'sv', cat: 'Connective', pos: 'Conjunction', eng: 'As, same as' },
+                { word: 'chw', cat: 'Connective', pos: 'Conjunction', eng: 'Because (Subordinating)' },
+                { word: 'wbh', cat: 'Connective', pos: 'Conjunction', eng: 'If (Subordinating)' },
+                { word: 'dhw', cat: 'Connective', pos: 'Conjunction', eng: 'Although (Subordinating)' },
+                { word: 'khw', cat: 'Connective', pos: 'Conjunction', eng: 'When (Subordinating)' },
                 
-                // ADVERBS
-                { word: 'kyorzh', pos: 'Adverb', eng: 'Now (Time)' },
-                { word: 'kezh', pos: 'Adverb', eng: 'Yesterday (Time)' },
-                { word: 'morzh', pos: 'Adverb', eng: 'Tomorrow (Time)' },
-                { word: 'cywzh', pos: 'Adverb', eng: 'Immediately (Time)' },
-                { word: 'phrozh', pos: 'Adverb', eng: 'Early (Time)' },
-                { word: 'cezh', pos: 'Adverb', eng: 'Here (Place)' },
-                { word: 'lazh', pos: 'Adverb', eng: 'There, yonder (Place)' },
-                { word: 'khilzh', pos: 'Adverb', eng: 'Far (Place)' },
-                { word: 'phyezh', pos: 'Adverb', eng: 'Everywhere (Place)' },
-                { word: 'mizh', pos: 'Adverb', eng: 'Elsewhere (Place)' },
-                { word: 'mazh', pos: 'Adverb', eng: 'Very, much (Degree)' },
-                { word: 'plizh', pos: 'Adverb', eng: 'More (Degree)' },
-                { word: 'lezh', pos: 'Adverb', eng: 'Less (Degree)' },
-                { word: 'pazh', pos: 'Adverb', eng: 'Enough (Degree)' },
-                { word: 'penzh', pos: 'Adverb', eng: 'Well (Manner)' },
-                { word: 'lozh', pos: 'Adverb', eng: 'Badly (Manner)' },
-                { word: 'plezh', pos: 'Adverb', eng: 'Please' },
+                // Modificative
+                { word: 'kyorzh', cat: 'Modificative', pos: 'Adverb', eng: 'Now (Time)' },
+                { word: 'kezh', cat: 'Modificative', pos: 'Adverb', eng: 'Yesterday (Time)' },
+                { word: 'morzh', cat: 'Modificative', pos: 'Adverb', eng: 'Tomorrow (Time)' },
+                { word: 'cywzh', cat: 'Modificative', pos: 'Adverb', eng: 'Immediately (Time)' },
+                { word: 'phrozh', cat: 'Modificative', pos: 'Adverb', eng: 'Early (Time)' },
+                { word: 'cezh', cat: 'Modificative', pos: 'Adverb', eng: 'Here (Place)' },
+                { word: 'lazh', cat: 'Modificative', pos: 'Adverb', eng: 'There, yonder (Place)' },
+                { word: 'khilzh', cat: 'Modificative', pos: 'Adverb', eng: 'Far (Place)' },
+                { word: 'phyezh', cat: 'Modificative', pos: 'Adverb', eng: 'Everywhere (Place)' },
+                { word: 'mizh', cat: 'Modificative', pos: 'Adverb', eng: 'Elsewhere (Place)' },
+                { word: 'mazh', cat: 'Modificative', pos: 'Adverb', eng: 'Very, much (Degree)' },
+                { word: 'plizh', cat: 'Modificative', pos: 'Adverb', eng: 'More (Degree)' },
+                { word: 'lezh', cat: 'Modificative', pos: 'Adverb', eng: 'Less (Degree)' },
+                { word: 'pazh', cat: 'Modificative', pos: 'Adverb', eng: 'Enough (Degree)' },
+                { word: 'penzh', cat: 'Modificative', pos: 'Adverb', eng: 'Well (Manner)' },
+                { word: 'lozh', cat: 'Modificative', pos: 'Adverb', eng: 'Badly (Manner)' },
+                { word: 'plezh', cat: 'Modificative', pos: 'Adverb', eng: 'Please' },
                 
-                // ROOTS / NOUNS
-                { word: 'sen', pos: 'Noun', eng: 'To be (identity) / is / yes / true' },
-                { word: 'svbh', pos: 'Noun', eng: 'To exist / survive / store' },
-                { word: 'stvz', pos: 'Noun', eng: 'To be at / present / located' },
-                { word: 'pard', pos: 'Noun', eng: 'To belong to / category / part' },
-                { word: 'lok', pos: 'Noun', eng: 'Position / coordinate / seat' },
-                { word: 'son', pos: 'Noun', eng: 'Zone / region / district' },
-                { word: 'krenz', pos: 'Noun', eng: 'Situation / affair / occurrence' },
-                { word: 'rizn', pos: 'Noun', eng: 'Reason / logic / principle' },
-                { word: 'phorz', pos: 'Noun', eng: 'Power / force / strength' },
-                { word: 'lwbh', pos: 'Noun', eng: 'Love / affection' },
+                // NOUNS / NUMBERS
+                { word: 'sen', cat: 'Noun/Number', pos: 'Noun', eng: 'To be (identity) / is / yes / true' },
+                { word: 'svbh', cat: 'Noun/Number', pos: 'Noun', eng: 'To exist / survive / store' },
+                { word: 'stvz', cat: 'Noun/Number', pos: 'Noun', eng: 'To be at / present / located' },
+                { word: 'pard', cat: 'Noun/Number', pos: 'Noun', eng: 'To belong to / category / part' },
+                { word: 'lok', cat: 'Noun/Number', pos: 'Noun', eng: 'Position / coordinate / seat' },
+                { word: 'son', cat: 'Noun/Number', pos: 'Noun', eng: 'Zone / region / district' },
+                { word: 'krenz', cat: 'Noun/Number', pos: 'Noun', eng: 'Situation / affair / occurrence' },
+                { word: 'rizn', cat: 'Noun/Number', pos: 'Noun', eng: 'Reason / logic / principle' },
+                { word: 'phorz', cat: 'Noun/Number', pos: 'Noun', eng: 'Power / force / strength' },
+                { word: 'lwbh', cat: 'Noun/Number', pos: 'Noun', eng: 'Love / affection' },
                 
                 // INTERJECTIONS & STAFFWORDS
-                { word: 'w!', pos: 'Interjection', eng: 'Yearning / If only! / More!' },
-                { word: 'a!', pos: 'Interjection', eng: 'Want / Despair / Alas!' },
-                { word: 'e!', pos: 'Interjection', eng: 'Exuberance / Bravo!' },
-                { word: 'i!', pos: 'Interjection', eng: 'Excitement / Joy / Hurray!' },
-                { word: 'nu', pos: 'Staffword', eng: 'Negation (not)' },
-                { word: 'u', pos: 'Staffword', eng: 'Plural / Virtual / Compounder / Perfect / Passive' },
-
-                // SUFFIXES
-                { word: '-ald', pos: 'Suffix', eng: 'Nature of (-ness, -ity)' },
-                { word: '-ajh', pos: 'Suffix', eng: 'Made of, compound of (-en, -ic)' },
-                { word: '-vj', pos: 'Suffix', eng: 'Present Participle (Frequentative)' },
-                { word: '-wj', pos: 'Suffix', eng: 'Qualifying Adjective (Possibility)' }
+                { word: 'w!', cat: 'Interjection', pos: 'Interjection', eng: 'Yearning / If only! / More!' },
+                { word: 'a!', cat: 'Interjection', pos: 'Interjection', eng: 'Want / Despair / Alas!' },
+                { word: 'e!', cat: 'Interjection', pos: 'Interjection', eng: 'Exuberance / Bravo!' },
+                { word: 'i!', cat: 'Interjection', pos: 'Interjection', eng: 'Excitement / Joy / Hurray!' },
+                { word: 'nu', cat: 'Staffword', pos: 'Staffword', eng: 'Negation (not)' },
+                { word: 'u', cat: 'Staffword', pos: 'Staffword', eng: 'Plural / Virtual / Compounder / Perfect / Passive' },
             ]
         };
 
@@ -986,17 +982,34 @@
             });
         }
 
+        function countWordsByCategory() {
+            const counts = {
+                'Interjection': 0,
+                'Connective': 0,
+                'Designative': 0,
+                'Staffword': 0,
+                'Noun/Number': 0,
+                'Modificative': 0
+            };
+            
+            state.lexiconData.forEach(word => {
+                counts[word.cat]++;
+            });
+            
+            return Object.values(counts);
+        }
+
         function renderCategoryChart() {
             const ctx = document.getElementById('categoryChart').getContext('2d');
             categoryChartInst = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Interjections', 'Connectives', 'Designatives', 'Staffwords', 'Nouns/Numbers', 'Verbs', 'Attributives', 'Modificatives'],
+                    labels: ['Interjections', 'Connectives', 'Designatives', 'Staffwords', 'Nouns/Numbers', 'Modificatives'],
                     datasets: [{
-                        data: [5, 10, 10, 15, 30, 15, 7.5, 7.5], 
+                        data: countWordsByCategory(), 
                         backgroundColor: [
                             '#dbeafe', '#bfdbfe', '#93c5fd', '#60a5fa', 
-                            '#ffedd5', '#fed7aa', '#fdba74', '#fb923c'  
+                            '#ffedd5', '#fed7aa'
                         ],
                         borderColor: '#ffffff',
                         borderWidth: 2
