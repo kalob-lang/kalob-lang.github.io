@@ -8,8 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Chosen Palette: Warm Neutrals & Deep Blue (Heritage Bolak) -->
-    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, longword details, and the complex 'u' tool), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators with passive/perfect toggles, a Suffix Applier, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
-    <!-- Visualization & Content Choices: 1. Vowel System -> Goal: Inform/Organize -> Viz: Chart.js Scatter Plot -> Justification: Plots 7-vowel spatial structure. 2. Word Categories -> Goal: Inform/Organize -> Viz: Chart.js Doughnut Chart -> Justification: Shows absolute division of the language. 3. Shortword & Longword Grids -> Goal: Inform -> Viz: Tailwind CSS Grid Cards -> Justification: Breaks down grammar rules logically for all parts of speech. 4. Lexicon -> Goal: Search/Filter/Action -> Viz: Interactive HTML Table with Action Buttons -> Justification: Efficient parsing of CSV entries with immediate links to derivation tools. 5. Conjugator/Applier/Derivator -> Goal: Apply/Change -> Viz: Dynamic HTML Output -> Justification: Interactively teaches the 'u' tool placement and suffix rules for nouns, verbs, and numbers. Method: Vanilla JS, Tailwind, Chart.js. -->
+    <!-- Application Structure Plan: The SPA is structured as a tabbed interactive dashboard consisting of four main sections: Phonology (visualizing sounds), Grammar (explaining word categories, shortword details, longword details, and the complex 'u' tool), Lexicon (an interactive dictionary incorporating all new pronouns, connectives, and adverbs), and Syntax & Tools (featuring expanded verb conjugators, Suffix Applier, a new A/M Conjugator, and a Number Derivator). This structure supports non-linear learning, allowing users to cross-reference grammar rules with active tools. The Lexicon is interlinked with the Tools tab via conditionally rendered shortcut buttons for Nouns. -->
+    <!-- Visualization & Content Choices: 1. Vowel System -> Goal: Inform/Organize -> Viz: Chart.js Scatter Plot + HTML Grid -> Justification: Plots 7-vowel spatial structure and maps their grammatical roles. 2. Word Categories -> Goal: Inform/Organize -> Viz: Chart.js Doughnut Chart -> Justification: Shows absolute division of the language. 3. Shortword & Longword Grids -> Goal: Inform -> Viz: Tailwind CSS Grid Cards -> Justification: Breaks down grammar rules logically. 4. Lexicon -> Goal: Search/Filter/Action -> Viz: Interactive HTML Table with Action Buttons -> Justification: Efficient parsing of CSV entries with immediate links to derivation tools. 5. Conjugator/Applier/Derivator -> Goal: Apply/Change -> Viz: Dynamic HTML Output -> Justification: Interactively teaches the 'u' tool placement, prefixes, and suffix rules for nouns, verbs, attributives, and numbers. Method: Vanilla JS, Tailwind, Chart.js. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <style>
@@ -39,7 +39,7 @@
             display: none;
         }
 
-        /* Custom scrollbar for table */
+        /* Custom scrollbar for table and tool results */
         .custom-scroll::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -99,8 +99,23 @@
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
                     <h2 class="text-xl font-semibold mb-4 text-blue-900">&#x1F4E2; The 7-Vowel Engine</h2>
                     <p class="text-stone-600 mb-4 text-sm">Kalob expands the standard 5-vowel system. These vowels are not just phonetic; they are grammatical indicators for tense, case, and function.</p>
-                    <div class="chart-container">
+                    
+                    <div class="chart-container mb-4">
                         <canvas id="vowelChart"></canvas>
+                    </div>
+
+                    <!-- Vowel Grammatical Functions -->
+                    <div class="mt-6 border-t border-stone-200 pt-5">
+                        <h3 class="text-sm font-bold text-stone-500 uppercase tracking-wider mb-3">Grammatical Functions</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-stone-700">
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">a</span> <span>Singular, Future Tense, Duty Adj/Adv</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">e</span> <span>Plural, Past Tense, General Adj/Adv</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">i</span> <span>Prepositions, Eternal Tense, Eternal Adj/Adv</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">o</span> <span>Prepositions, Present Tense, Transitory Adj/Adv</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">v</span> <span>Conjunctions, Habitual Tense, Frequentative Adj/Adv</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">w</span> <span>Conjunctions, Hypothetical, Possibility Adj/Adv</span></div>
+                            <div class="sm:col-span-2 flex items-start mt-1 bg-orange-50 p-2 rounded border border-orange-100"><span class="font-bold text-orange-900 bg-orange-200 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">u</span> <span>Plural (suffix), Virtual/Compounder (prefix), Passive (infix)</span></div>
+                        </div>
                     </div>
                 </div>
 
@@ -245,11 +260,11 @@
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Express raw emotion or vague notions. They consist of a single vowel or the same vowel repeated. Written with an exclamation mark.</p>
                         <div class="bg-stone-50 rounded p-3 text-sm">
-                            <ul class="space-y-1">
-                                <li><strong class="text-purple-700 w-8 inline-block">w!</strong> Yearning / "If only!" / "More!"</li>
-                                <li><strong class="text-purple-700 w-8 inline-block">e!</strong> Exuberance / Approval / "Bravo!"</li>
-                                <li><strong class="text-purple-700 w-8 inline-block">v!</strong> Overwhelming / Excessive / "Stop!"</li>
-                                <li><strong class="text-purple-700 w-8 inline-block">u!</strong> Parity / Consent / "Agreed!"</li>
+                            <ul class="space-y-1 text-stone-700">
+                                <li><strong class="text-purple-700 w-8 inline-block text-lg">w!</strong> Yearning / "If only!" / "More!"</li>
+                                <li><strong class="text-purple-700 w-8 inline-block text-lg">e!</strong> Exuberance / Approval / "Bravo!"</li>
+                                <li><strong class="text-purple-700 w-8 inline-block text-lg">v!</strong> Overwhelming / Excessive / "Stop!"</li>
+                                <li><strong class="text-purple-700 w-8 inline-block text-lg">u!</strong> Parity / Consent / "Agreed!"</li>
                             </ul>
                         </div>
                     </div>
@@ -261,11 +276,11 @@
                             <h3 class="text-lg font-bold text-stone-800">Connectives</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Link words and clauses. Identifiable by their strict, exclusive vowel usage.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm">
+                        <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-2">
-                                <li><span class="font-semibold text-stone-700 border-b border-stone-300">Prepositions (only i, o):</span><br>
+                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Prepositions (only i, o):</span><br>
                                     <span class="text-teal-700 font-medium">ci</span> (during), <span class="text-teal-700 font-medium">in</span> (inside), <span class="text-teal-700 font-medium">ki</span> (with), <span class="text-teal-700 font-medium">so</span> (without)</li>
-                                <li><span class="font-semibold text-stone-700 border-b border-stone-300">Conjunctions (only v, w):</span><br>
+                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Conjunctions (only v, w):</span><br>
                                     <span class="text-teal-700 font-medium">pv</span> (but), <span class="text-teal-700 font-medium">vd</span> (and), <span class="text-teal-700 font-medium">chw</span> (because), <span class="text-teal-700 font-medium">wbh</span> (if)</li>
                             </ul>
                         </div>
@@ -278,23 +293,23 @@
                             <h3 class="text-lg font-bold text-stone-800">Designatives</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Articles, pronouns, and demonstratives. They utilize ONLY the vowel <strong>a</strong> (for singular) or <strong>e</strong> (for plural).</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2">
+                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Singular (a)</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-rose-700">an</strong> (a/an)</li>
-                                    <li><strong class="text-rose-700">azh</strong> (this/that)</li>
-                                    <li><strong class="text-rose-700">ka</strong> (who?)</li>
-                                    <li><strong class="text-rose-700">ma</strong> (me)</li>
+                                    <li><strong class="text-rose-700 text-base">an</strong> (a/an)</li>
+                                    <li><strong class="text-rose-700 text-base">azh</strong> (this/that)</li>
+                                    <li><strong class="text-rose-700 text-base">ka</strong> (who?)</li>
+                                    <li><strong class="text-rose-700 text-base">ma</strong> (me)</li>
                                 </ul>
                             </div>
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Plural (e)</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-rose-700">ane</strong> (some/any)</li>
-                                    <li><strong class="text-rose-700">azhe</strong> (these/those)</li>
-                                    <li><strong class="text-rose-700">ke</strong> (who pl.?)</li>
-                                    <li><strong class="text-rose-700">na</strong> (us)</li>
+                                    <li><strong class="text-rose-700 text-base">ane</strong> (some/any)</li>
+                                    <li><strong class="text-rose-700 text-base">azhe</strong> (these/those)</li>
+                                    <li><strong class="text-rose-700 text-base">ke</strong> (who pl.?)</li>
+                                    <li><strong class="text-rose-700 text-base">na</strong> (us)</li>
                                 </ul>
                             </div>
                         </div>
@@ -307,12 +322,12 @@
                             <h3 class="text-lg font-bold text-stone-800">Staffwords</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">"Oral gestures" that govern or bind meaning without attaching directly to the word. They must contain two different vowels OR end in <strong>u</strong>.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm">
+                        <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
-                                <li><strong class="text-indigo-700 w-10 inline-block">nu</strong> Indicates negation (not)</li>
-                                <li><strong class="text-indigo-700 w-10 inline-block">su</strong> Reflexive positive pronoun</li>
-                                <li><strong class="text-indigo-700 w-10 inline-block">khu</strong> Positive interrogation (is it that...?)</li>
-                                <li><strong class="text-indigo-700 w-10 inline-block">u</strong> Plural / Virtual / Compounder</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">nu</strong> Indicates negation (not)</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">su</strong> Reflexive positive pronoun</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">khu</strong> Positive interrogation (is it that...?)</li>
+                                <li><strong class="text-indigo-700 w-10 inline-block text-base">u</strong> Plural / Virtual / Compounder</li>
                             </ul>
                         </div>
                     </div>
@@ -331,19 +346,19 @@
                             <h3 class="text-lg font-bold text-stone-800">Nouns & Numbers</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Represent the precise roots of the language. They must begin with a Hard Onset (or the tool <code class="bg-stone-100 px-1 rounded">u</code>) and always finish with a Soft Coda (except <code class="bg-stone-100 px-1 rounded">zh</code> or <code class="bg-stone-100 px-1 rounded">j</code>).</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2">
+                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Nouns (Roots)</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-amber-700">sen</strong> (identity / to be)</li>
-                                    <li><strong class="text-amber-700">phorz</strong> (power)</li>
+                                    <li><strong class="text-amber-700 text-base">sen</strong> (identity / to be)</li>
+                                    <li><strong class="text-amber-700 text-base">phorz</strong> (power)</li>
                                 </ul>
                             </div>
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Numbers</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-amber-700">phwn</strong> (one)</li>
-                                    <li><strong class="text-amber-700">cen</strong> (ten)</li>
+                                    <li><strong class="text-amber-700 text-base">phwn</strong> (one)</li>
+                                    <li><strong class="text-amber-700 text-base">cen</strong> (ten)</li>
                                 </ul>
                             </div>
                         </div>
@@ -356,12 +371,12 @@
                             <h3 class="text-lg font-bold text-stone-800">Verbs</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Derived from Noun roots by appending an open vowel (<code class="bg-stone-100 px-1 rounded">a, e, i, o, v, w</code>). They signify action or state with respect to time/tense.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm">
+                        <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
-                                <li><strong class="text-blue-700 w-12 inline-block">lwbhi</strong> To love (always / eternal)</li>
-                                <li><strong class="text-blue-700 w-12 inline-block">lwbho</strong> To love (presently)</li>
-                                <li><strong class="text-blue-700 w-12 inline-block">lwbhe</strong> To have loved (past)</li>
-                                <li><strong class="text-blue-700 w-12 inline-block">lwbhv</strong> To usually love (habitual)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhi</strong> To love (always / eternal)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbho</strong> To love (presently)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhe</strong> To have loved (past)</li>
+                                <li><strong class="text-blue-700 w-14 inline-block text-base">lwbhv</strong> To usually love (habitual)</li>
                             </ul>
                         </div>
                     </div>
@@ -373,12 +388,12 @@
                             <h3 class="text-lg font-bold text-stone-800">Attributives</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Qualifying Adjectives and Participles. Created by adding the consonant <code class="bg-stone-100 px-1 rounded">j</code> to a verb form. Expresses quality or attributes.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm">
+                        <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
-                                <li><strong class="text-emerald-700 w-10 inline-block">-ij</strong> Present Participle (Eternal)</li>
-                                <li><strong class="text-emerald-700 w-10 inline-block">-oj</strong> Present Participle (Transitory)</li>
-                                <li><strong class="text-emerald-700 w-10 inline-block">-ej</strong> Qualifying Adjective (General)</li>
-                                <li><strong class="text-emerald-700 w-10 inline-block">-wj</strong> Qualifying Adjective (Possibility)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-ij</strong> Present Participle (Eternal)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-oj</strong> Present Participle (Transitory)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-ej</strong> Qualifying Adjective (General)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-wj</strong> Qualifying Adjective (Possibility)</li>
                             </ul>
                         </div>
                     </div>
@@ -390,19 +405,19 @@
                             <h3 class="text-lg font-bold text-stone-800">Modificatives</h3>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Adverbs and Gerunds. Always finish with the consonant <code class="bg-stone-100 px-1 rounded">zh</code>. Simple adverbs are 3+ letters; derived gerunds are 5+ letters.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2">
+                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Adverbs</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-rose-700">mazh</strong> (very)</li>
-                                    <li><strong class="text-rose-700">cezh</strong> (here)</li>
+                                    <li><strong class="text-rose-700 text-base">mazh</strong> (very)</li>
+                                    <li><strong class="text-rose-700 text-base">cezh</strong> (here)</li>
                                 </ul>
                             </div>
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Gerunds (Suffix)</span>
                                 <ul class="mt-1 space-y-1">
-                                    <li><strong class="text-rose-700">-ezh</strong> (General)</li>
-                                    <li><strong class="text-rose-700">-ozh</strong> (Transitory)</li>
+                                    <li><strong class="text-rose-700 text-base">-ezh</strong> (General)</li>
+                                    <li><strong class="text-rose-700 text-base">-ozh</strong> (Transitory)</li>
                                 </ul>
                             </div>
                         </div>
@@ -447,7 +462,7 @@
             <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <h1 class="text-3xl font-bold text-stone-800 mb-2">Interactive Lexicon</h1>
-                    <p class="text-lg text-stone-600">Search the corpus. For <strong class="text-stone-800">Nouns</strong>, send words to the deriving tools using the <span class="font-bold text-green-700 bg-green-100 px-1 rounded">N</span> and <span class="font-bold text-blue-700 bg-blue-100 px-1 rounded">V</span> buttons.</p>
+                    <p class="text-lg text-stone-600">Search the corpus. For <strong class="text-stone-800">Nouns</strong>, send words to the deriving tools using the <span class="font-bold text-green-700 bg-green-100 px-1 rounded">N</span>, <span class="font-bold text-blue-700 bg-blue-100 px-1 rounded">V</span>, and <span class="font-bold text-purple-700 bg-purple-100 px-1 rounded">A/M</span> buttons.</p>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
@@ -503,7 +518,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 
                 <!-- Verb Conjugator -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-col">
                     <h2 class="text-xl font-semibold mb-2 text-blue-900">Verb Conjugator <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-0.5 rounded align-middle">V</span></h2>
                     <p class="text-sm text-stone-500 mb-6">See how the 'u' tool modifies Verbs for passive voice and perfect tenses.</p>
                     
@@ -512,13 +527,13 @@
                     </div>
                     
                     <div class="flex gap-4 mb-6 bg-stone-50 p-3 rounded-lg border border-stone-200 text-sm">
-                        <label class="flex items-center gap-2 cursor-pointer text-stone-700">
+                        <label class="flex items-center gap-2 cursor-pointer text-stone-700 font-medium">
                             <input type="checkbox" id="toggle-perfect" class="w-4 h-4 text-blue-600 rounded border-stone-300 focus:ring-blue-500">
-                            <span>Perfect Tense (Prefix <code class="bg-white px-1 rounded text-blue-800">u-</code>)</span>
+                            <span>Perfect Tense (Prefix <code class="bg-white px-1 rounded text-blue-800 font-bold">u-</code>)</span>
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer text-stone-700">
+                        <label class="flex items-center gap-2 cursor-pointer text-stone-700 font-medium">
                             <input type="checkbox" id="toggle-passive" class="w-4 h-4 text-orange-600 rounded border-stone-300 focus:ring-orange-500">
-                            <span>Passive Voice (Infix <code class="bg-white px-1 rounded text-orange-800">-u-</code>)</span>
+                            <span>Passive Voice (Infix <code class="bg-white px-1 rounded text-orange-800 font-bold">-u-</code>)</span>
                         </label>
                     </div>
 
@@ -534,7 +549,44 @@
                         <input type="text" id="suffix-input" placeholder="Enter root (e.g. phorz)" value="phorz" class="flex-grow px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-shadow">
                     </div>
 
-                    <div class="grid grid-cols-2 gap-3 flex-grow overflow-y-auto max-h-80 custom-scroll pr-2" id="suffix-results"></div>
+                    <div class="grid grid-cols-2 gap-3 flex-grow overflow-y-auto max-h-[280px] custom-scroll pr-2" id="suffix-results"></div>
+                </div>
+
+                <!-- Attributive/Modificative Conjugator -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 flex flex-col">
+                    <h2 class="text-xl font-semibold mb-2 text-purple-900">Attr/Modif Conjugator <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-0.5 rounded align-middle">A/M</span></h2>
+                    <p class="text-sm text-stone-500 mb-4">Derive adjectives and adverbs from roots with optional modality prefixes.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-2 mb-3">
+                        <input type="text" id="am-input" placeholder="Enter root (e.g. lwbh)" value="lwbh" class="flex-grow px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-shadow">
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4 bg-stone-50 p-3 rounded-lg border border-stone-200 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                            <label class="flex items-center gap-1 cursor-pointer text-stone-700 font-medium">
+                                <input type="radio" name="am-type" value="attributive" checked class="w-4 h-4 text-purple-600 focus:ring-purple-500"> Attributive (Adj)
+                            </label>
+                            <label class="flex items-center gap-1 cursor-pointer text-stone-700 font-medium">
+                                <input type="radio" name="am-type" value="modificative" class="w-4 h-4 text-purple-600 focus:ring-purple-500"> Modificative (Adv)
+                            </label>
+                        </div>
+                        <div class="flex items-center gap-2 border-l border-stone-300 pl-4">
+                            <label class="text-stone-600 text-xs font-bold uppercase tracking-wide">Prefix:</label>
+                            <select id="am-prefix" class="px-2 py-1 border border-stone-300 rounded text-stone-700 focus:ring-purple-500 focus:border-purple-500 bg-white text-xs outline-none">
+                                <option value="">None</option>
+                                <option value="u">u- (Equality)</option>
+                                <option value="nu">nu- (Negation)</option>
+                                <option value="au">au- (Duty)</option>
+                                <option value="eu">eu- (Possibility)</option>
+                                <option value="iu">iu- (Habit)</option>
+                                <option value="ou">ou- (Transitory)</option>
+                                <option value="vu">vu- (Ability/Slang)</option>
+                                <option value="wu">wu- (Intent/Meta)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 flex-grow overflow-y-auto max-h-[280px] custom-scroll pr-2" id="am-results"></div>
                 </div>
 
                 <!-- Number Derivator -->
@@ -756,6 +808,37 @@
             { suffix: 'wj', name: 'Possibility Adj', desc: 'qualifying adjective' }
         ];
 
+        const amData = {
+            attributive: [
+                { suffix: 'ij', name: 'Eternal', desc: 'Present Participle (always)' },
+                { suffix: 'oj', name: 'Transitory', desc: 'Present Participle (temporary)' },
+                { suffix: 'ej', name: 'General', desc: 'Qualifying Adjective (general)' },
+                { suffix: 'aj', name: 'Duty', desc: 'Qualifying Adjective (duty)' },
+                { suffix: 'vj', name: 'Frequentative', desc: 'Present Participle (frequent)' },
+                { suffix: 'wj', name: 'Possibility', desc: 'Qualifying Adjective (possible)' }
+            ],
+            modificative: [
+                { suffix: 'izh', name: 'Eternal Adv', desc: 'Participle Adverb (always)' },
+                { suffix: 'ozh', name: 'Transitory Adv', desc: 'Participle Adverb (temporary)' },
+                { suffix: 'ezh', name: 'General Adv', desc: 'Adverb of Quality (general)' },
+                { suffix: 'azh', name: 'Duty Adv', desc: 'Adverb of Quality (duty)' },
+                { suffix: 'vzh', name: 'Frequentative Adv', desc: 'Participle Adverb (frequent)' },
+                { suffix: 'wzh', name: 'Possibility Adv', desc: 'Adverb of Quality (possible)' }
+            ]
+        };
+
+        const prefixMeanings = {
+            '': '',
+            'u': 'as/equally ',
+            'nu': 'not ',
+            'au': 'supposed to be ',
+            'eu': 'seemingly/failed ',
+            'iu': 'addictively/compelled ',
+            'ou': 'newly/just ',
+            'vu': 'slang/corrupted ',
+            'wu': 'figuratively '
+        };
+
         let vowelChartInst = null;
         let categoryChartInst = null;
 
@@ -796,6 +879,8 @@
                     inputElement = document.getElementById('suffix-input');
                 } else if (toolType === 'V') {
                     inputElement = document.getElementById('root-input');
+                } else if (toolType === 'AM') {
+                    inputElement = document.getElementById('am-input');
                 }
 
                 if (inputElement) {
@@ -937,8 +1022,9 @@
                     // Only show tools for Nouns
                     if (item.pos === 'Noun') {
                         toolsHTML = `
-                            <button onclick="sendToTool('${item.word.replace(/'/g, "\\'")}', 'N')" class="px-2.5 py-1 bg-green-100 text-green-800 rounded hover:bg-green-200 focus:ring-2 focus:ring-green-400 text-xs font-bold transition-colors shadow-sm" title="Send to Suffix Applier">N</button>
-                            <button onclick="sendToTool('${item.word.replace(/'/g, "\\'")}', 'V')" class="px-2.5 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 focus:ring-2 focus:ring-blue-400 text-xs font-bold transition-colors shadow-sm" title="Send to Verb Conjugator">V</button>
+                            <button onclick="sendToTool('${item.word.replace(/'/g, "\\'")}', 'N')" class="px-2 py-1 bg-green-100 text-green-800 rounded hover:bg-green-200 focus:ring-2 focus:ring-green-400 text-xs font-bold transition-colors shadow-sm" title="Send to Suffix Applier">N</button>
+                            <button onclick="sendToTool('${item.word.replace(/'/g, "\\'")}', 'V')" class="px-2 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 focus:ring-2 focus:ring-blue-400 text-xs font-bold transition-colors shadow-sm" title="Send to Verb Conjugator">V</button>
+                            <button onclick="sendToTool('${item.word.replace(/'/g, "\\'")}', 'AM')" class="px-2 py-1 bg-purple-100 text-purple-800 rounded hover:bg-purple-200 focus:ring-2 focus:ring-purple-400 text-xs font-bold transition-colors shadow-sm" title="Send to A/M Conjugator">A/M</button>
                         `;
                     }
 
@@ -1027,6 +1113,41 @@
             apply();
         }
 
+        function initAMConjugator() {
+            const input = document.getElementById('am-input');
+            const typeRadios = document.getElementsByName('am-type');
+            const prefixSelect = document.getElementById('am-prefix');
+            const container = document.getElementById('am-results');
+
+            const apply = () => {
+                let root = input.value.trim().toLowerCase();
+                if(!root) root = 'lwbh';
+                
+                const type = Array.from(typeRadios).find(r => r.checked).value;
+                const prefix = prefixSelect.value;
+                const prefixDesc = prefixMeanings[prefix];
+                const displayPrefix = prefix ? `<span class="text-indigo-600">${prefix}</span>` : '';
+
+                container.innerHTML = '';
+
+                amData[type].forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-stone-50 border border-stone-200 p-3 rounded shadow-sm';
+                    div.innerHTML = `
+                        <div class="text-xs text-stone-500 uppercase tracking-wider mb-1 font-semibold">${item.name}</div>
+                        <div class="text-lg font-bold text-stone-800 tracking-wide mb-1">${displayPrefix}${root}<span class="text-purple-700">${item.suffix}</span></div>
+                        <div class="text-xs text-stone-600"><span class="italic text-indigo-700 font-medium">${prefixDesc}</span>${item.desc}</div>
+                    `;
+                    container.appendChild(div);
+                });
+            };
+
+            input.addEventListener('input', apply);
+            prefixSelect.addEventListener('change', apply);
+            typeRadios.forEach(r => r.addEventListener('change', apply));
+            apply();
+        }
+
         function initNumberDerivator() {
             const select = document.getElementById('number-select');
             const container = document.getElementById('number-results');
@@ -1056,6 +1177,7 @@
             initLexiconInteractions();
             initConjugator();
             initSuffixApplier();
+            initAMConjugator();
             initNumberDerivator();
             renderVowelChart(); 
         });
