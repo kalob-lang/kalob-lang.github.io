@@ -1919,18 +1919,19 @@
             state.lexiconData.forEach(word => {
                 counts[word.cat]++;
             });
-            
-            return Object.values(counts);
+
+            return counts
         }
 
         function renderCategoryChart() {
             const ctx = document.getElementById('categoryChart').getContext('2d');
+            const counts = countWordsByCategory();
             categoryChartInst = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Interjections', 'Connectives', 'Designatives', 'Staffwords', 'Nouns/Numbers', 'Modificatives'],
                     datasets: [{
-                        data: countWordsByCategory(), 
+                        data: Object.values(counts), 
                         backgroundColor: [
                             '#dbeafe', '#bfdbfe', '#93c5fd', '#60a5fa', 
                             '#ffedd5', '#fed7aa'
@@ -1949,6 +1950,7 @@
                         },
                         tooltip: {
                             callbacks: {
+                                title: function(tooltipItems) {  return tooltipItems[0].raw + ' words'; },
                                 label: function(context) {
                                     const label = context.label || '';
                                     if(['Interjections', 'Connectives', 'Designatives', 'Staffwords'].includes(label)) {
