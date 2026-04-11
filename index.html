@@ -283,13 +283,43 @@
                             <button onclick="navigateToLexicon('Connective')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Link words and clauses. Identifiable by their strict, exclusive vowel usage.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
-                            <ul class="space-y-2">
-                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Prepositions (only i, o):</span><br><br>
-                                    <span class="text-teal-700 font-medium">ci</span> (during), <span class="text-teal-700 font-medium">in</span> (inside), <span class="text-teal-700 font-medium">ki</span> (with), <span class="text-teal-700 font-medium">so</span> (without)</li><br>
-                                <li><span class="font-semibold text-stone-800 border-b border-stone-300">Conjunctions (only v, w):</span><br><br>
-                                    <span class="text-teal-700 font-medium">pv</span> (but), <span class="text-teal-700 font-medium">vd</span> (and), <span class="text-teal-700 font-medium">chw</span> (because), <span class="text-teal-700 font-medium">wbh</span> (if)</li>
-                            </ul>
+                        <div id="inner-connectives-content" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Basic Definitions -->
+                            <div class="bg-stone-50 rounded p-3 text-sm text-stone-700 flex flex-col justify-center">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <div class="font-semibold text-stone-800 border-b border-stone-300 mb-1 pb-1">Prepositions (only i, o):</div>
+                                        <div class="leading-relaxed"><span class="text-teal-700 font-medium">ci</span>&nbsp;(during), <span class="text-teal-700 font-medium">in</span>&nbsp;(inside), <span class="text-teal-700 font-medium">ki</span>&nbsp;(with), <span class="text-teal-700 font-medium">so</span>&nbsp;(without), <span class="text-teal-700 font-medium">pro</span>&nbsp;(for), <span class="text-teal-700 font-medium">ri</span>&nbsp;(according to), etc.</div>
+                                    </li>
+                                    <li>
+                                        <div class="font-semibold text-stone-800 border-b border-stone-300 mb-1 pb-1">Conjunctions (only v, w):</div>
+                                        <div class="leading-relaxed"><span class="text-teal-700 font-medium">cv</span>&nbsp;(or), <span class="text-teal-700 font-medium">stv</span>&nbsp;(then, next), <span class="text-teal-700 font-medium">pv</span>&nbsp;(but), <span class="text-teal-700 font-medium">vd</span>&nbsp;(and), <span class="text-teal-700 font-medium">chw</span>&nbsp;(because), <span class="text-teal-700 font-medium">wbh</span>&nbsp;(if), etc.</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Prepositions of Direction Guide -->
+                            <div class="bg-teal-50 border border-teal-100 rounded p-3 text-sm text-stone-700">
+                                <h4 class="font-semibold text-teal-800 border-b border-teal-200 pb-1 mb-2">Prepositions of Direction</h4>
+                                <p class="text-xs mb-2">
+                                    Augmented by adding the vowel <strong class="text-teal-700">i</strong> for <strong>origin (from)</strong>, and <strong class="text-teal-700">o</strong> for <strong>direction (to)</strong>.
+                                </p>
+                                <div class="bg-white p-2 rounded border border-teal-100 shadow-sm text-xs mb-2">
+                                    <strong class="text-teal-800">Placement:</strong> Attach to the side of the root that has the consonant (<span class="text-teal-600 font-mono">VC &rarr; VCV</span>, <span class="text-teal-600 font-mono">CV &rarr; VCV</span>).
+                                </div>
+                                <ul class="text-xs space-y-2 mt-2">
+                                    <li class="flex items-center justify-between">
+                                        <span class="w-[85px]"><strong class="text-teal-700">ib</strong> <small>(on/above)</small></span>
+                                        <span class="text-teal-300 font-bold">&rarr;</span>
+                                        <span class="flex-1 text-right"><strong class="text-teal-700">ibi</strong> <small>(from above)</small> | <strong class="text-teal-700">ibo</strong>&nbsp;<small>(onto)</small></span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="w-[85px]"><strong class="text-teal-700">shi</strong> <small>(at house)</small></span>
+                                        <span class="text-teal-300 font-bold">&rarr;</span>
+                                        <span class="flex-1 text-right"><strong class="text-teal-700">ishi</strong> <small>(from house)</small> | <strong class="text-teal-700">oshi</strong>&nbsp;<small>(to house)</small></span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
