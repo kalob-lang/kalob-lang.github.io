@@ -461,7 +461,7 @@
                             <h3 class="text-lg font-bold text-stone-800">Designatives</h3>
                             <button onclick="navigateToLexicon('Designative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
-                        <p class="text-sm text-stone-600 mb-4">Articles, pronouns, and demonstratives. They utilize ONLY the vowel <strong>a</strong> (for singular) or <strong>e</strong> (for plural).</p>
+                        <p class="text-sm text-stone-600 mb-4">Articles, impersonal pronouns, and demonstratives. They utilize ONLY the vowel <strong>a</strong> (for singular) or <strong>e</strong> (for plural).</p>
                         <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Singular (a)</span>
@@ -526,6 +526,59 @@
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Pronouns Deep Dive -->
+            <div class="bg-rose-900 text-white p-6 rounded-xl shadow-md border border-rose-800 mt-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-rose-300">Personal Pronouns: The Consonant Core</h2>
+                <p class="text-rose-100 mb-6 text-sm">
+                    For almost all other words in the designative class (articles, demonstratives, relatives,
+                    interrogatives, and indefinites), the rule is absolute: a final <strong>-a</strong> indicates
+                    singular, and <strong>-e</strong> indicates plural. However, personal pronouns operate on a
+                    completely different mechanical system. The grammatical concepts of person, gender, and number
+                    are encoded entirely within a <strong>single characteristic consonant</strong>: <strong>m</strong> (1
+                    Sg.), <strong>t</strong> (2 Fam. Sg.), <strong>v</strong> (2 Res. Sg.), <strong>s</strong> (3 Anim. Sg.),
+                    <strong>l</strong> (3 Inan. Sg,), <strong>q</strong> (3 Abs. Sg.), <strong>n</strong> (1 Pl.), <strong>p</strong> (2
+                    Fam. Pl.), <strong>g</strong> (2 Res. Pl.), <strong>b</strong> (3 Anim. Pl.), <strong>f</strong> (3 Inan. Pl.),
+                    <strong>d</strong> (3 Abs. Pl.). Vowels are then wrapped around this consonant to assign the case.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Singular Cases -->
+                    <div class="bg-rose-950 p-4 rounded-lg border border-rose-800 flex flex-col">
+                        <h3 class="font-semibold text-rose-300 mb-2 border-b border-rose-800 pb-2">1. Singular Cases</h3>
+                        <div class="bg-rose-900 p-3 rounded text-sm space-y-2 border border-rose-700 font-mono flex-grow">
+                            <div class="flex justify-between items-center"><span>C[Sg] + <strong class="text-white text-lg ml-1">e</strong></span> <span class="text-rose-200">Nominative</span></div>
+                            <div class="flex justify-between items-center"><span>C[Sg] + <strong class="text-white text-lg ml-1">a</strong></span> <span class="text-rose-200">Dative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Sg] + <strong class="text-white text-lg ml-1">a</strong></span> <span class="text-rose-200">Gen/Ablative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Sg]</span> <span class="text-rose-200 text-right">Vocative/<br>Imperative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Sg] + <strong class="text-white text-lg ml-1">e</strong></span> <span class="text-rose-200 text-right">Emphatic/<br>Reflexive</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Plural Cases -->
+                    <div class="bg-rose-950 p-4 rounded-lg border border-rose-800 flex flex-col">
+                        <h3 class="font-semibold text-rose-300 mb-2 border-b border-rose-800 pb-2">2. Plural Cases</h3>
+                        <div class="bg-rose-900 p-3 rounded text-sm space-y-2 border border-rose-700 font-mono flex-grow">
+                            <div class="flex justify-between items-center"><span>C[Pl] + <strong class="text-white text-lg ml-1">e</strong></span> <span class="text-rose-200">Nominative</span></div>
+                            <div class="flex justify-between items-center"><span>C[Pl] + <strong class="text-white text-lg ml-1">a</strong></span> <span class="text-rose-200">Dative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Pl] + <strong class="text-white text-lg ml-1">a</strong></span> <span class="text-rose-200">Gen/Ablative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Pl]</span> <span class="text-rose-200 text-right">Vocative/<br>Imperative</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white text-lg mr-1">e</strong> + C[Pl] + <strong class="text-white text-lg ml-1">e</strong></span> <span class="text-rose-200 text-right">Emphatic/<br>Reflexive</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Possessives -->
+                    <div class="bg-rose-950 p-4 rounded-lg border border-rose-800 flex flex-col">
+                        <h3 class="font-semibold text-rose-300 mb-2 border-b border-rose-800 pb-2">3. Possessives</h3>
+                        <p class="text-[11px] text-rose-200 mb-3 leading-snug">Plurality concepts are restored to the suffix vowels to indicate the number of the <em>possession</em> itself.</p>
+                        <div class="bg-rose-900 p-2.5 rounded text-[11px] space-y-2 border border-rose-700 font-mono flex-grow flex flex-col justify-center">
+                            <div class="flex justify-between items-center"><span>C[Sg] + <strong class="text-white text-sm ml-1">ea</strong></span> <span class="text-rose-200 text-right leading-tight">Sg Possessor<br>Sg Possession</span></div>
+                            <div class="flex justify-between items-center pt-2 border-t border-rose-800/50"><span>C[Sg] + <strong class="text-white text-sm ml-1">ae</strong></span> <span class="text-rose-200 text-right leading-tight">Sg Possessor<br>Pl Possession</span></div>
+                            <div class="flex justify-between items-center pt-2 border-t border-rose-800/50"><span>C[Pl] + <strong class="text-white text-sm ml-1">ea</strong></span> <span class="text-rose-200 text-right leading-tight">Pl Possessor<br>Sg Possession</span></div>
+                            <div class="flex justify-between items-center pt-2 border-t border-rose-800/50"><span>C[Pl] + <strong class="text-white text-sm ml-1">ae</strong></span> <span class="text-rose-200 text-right leading-tight">Pl Possessor<br>Pl Possession</span></div>
                         </div>
                     </div>
                 </div>
