@@ -76,7 +76,8 @@
             section#syntax { display: none !important; } /* Hide tools tab */
             .shadow-sm, .shadow-md, .shadow-xl { box-shadow: none !important; }
             .border { border: 1px solid #ddd !important; }
-            .tooltip-block { position: static !important; display: block !important; border: 1px solid #ccc !important; box-shadow: none !important; margin-top: 10px; width: 100% !important; }
+            [id$="-tooltip"] { position: relative !important; display: block !important; border: 1px solid #ccc !important; box-shadow: none !important; margin-top: 10px !important; width: 100% !important; max-width: none !important; background: #fafaf9 !important; color: #1c1917 !important; transform: none !important; left: 0 !important; top: auto !important; }
+            [id$="-tooltip"] button { display: none !important; } /* Hide close buttons on tooltips in print */
             canvas { max-width: 100% !important; }
             .print-break-inside-avoid { break-inside: avoid; }
             .overflow-x-auto { overflow: visible !important; }
@@ -86,6 +87,14 @@
             /* but not the first one in the file */
             h1:not(:first-of-type), h2:not(:first-of-type) {
                 break-before: page;
+            }
+
+            #ng-tooltip-header, #ane-tooltip-header {
+                break-before: avoid;
+            }
+
+            #adverbs-gerunds-table {
+                break-inside: avoid;
             }
 
             /* Prevent headers from being left stranded at the bottom of a page 
@@ -309,7 +318,7 @@
                             <li><strong class="text-stone-800 font-sans">R-based:</strong> rl</li>
                             
                             <div id="ng-tooltip" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 bg-stone-800 text-stone-100 text-xs rounded shadow-xl leading-relaxed z-50 w-64 sm:w-80 border border-stone-700">
-                                <div class="flex justify-between items-start mb-1">
+                                <div id="ng-tooltip-header" class="flex justify-between items-start mb-1">
                                     <strong class="text-rose-400 font-semibold tracking-wide uppercase text-[10px]">The 'ng' Coda</strong>
                                     <button onclick="document.getElementById('ng-tooltip').classList.add('hidden')" class="text-stone-400 hover:text-white">&times;</button>
                                 </div>
@@ -329,7 +338,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-stone-100 print:hidden">
                     <h2 class="text-xl font-semibold mb-4 text-blue-900">Vocabulary Division</h2>
                     <p class="text-stone-600 mb-2 text-sm">All non-derived words are divided into Shortwords (grammar) and Longwords (content).</p>
                     <div class="chart-container" style="height: 250px;">
@@ -467,18 +476,18 @@
                                         <button onclick="document.getElementById('ane-tooltip').classList.toggle('hidden')" class="inline-block text-stone-400 hover:text-rose-600 focus:outline-none align-text-bottom ml-1">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         </button>
-                                        <div id="ane-tooltip" class="hidden absolute top-full left-0 mt-2 p-3 bg-stone-800 text-stone-100 text-xs rounded shadow-xl leading-relaxed z-50 w-64 sm:w-80 border border-stone-700">
-                                            <div class="flex justify-between items-start mb-1">
-                                                <strong class="text-rose-400 font-semibold tracking-wide uppercase text-[10px]">Partitive Rule</strong>
-                                                <button onclick="document.getElementById('ane-tooltip').classList.add('hidden')" class="text-stone-400 hover:text-white">&times;</button>
-                                            </div>
-                                            When "some" or "any" functions strictly as a partitive article—meaning it refers to an unspecified quantity of an uncountable substance—Kalob suppresses it entirely and leaves the noun bare.<br><br>
-                                            For example, "Give some bread and some berries" translates to <span class="text-rose-300 font-mono">ed kibho qhidu vd phrvdigu</span> (Give bread and cherries), completely omitting a translation for "some".
-                                        </div>
                                     </li>
                                     <li><strong class="text-rose-700 text-base">azhe</strong> (these/those)</li>
                                     <li><strong class="text-rose-700 text-base">ke</strong> (who pl.?)</li>
                                     <li><strong class="text-rose-700 text-base">na</strong> (us)</li>
+                                    <div id="ane-tooltip" class="hidden absolute top-full left-0 mt-2 p-3 bg-stone-800 text-stone-100 text-xs rounded shadow-xl leading-relaxed z-50 w-64 sm:w-80 border border-stone-700">
+                                        <div id="ane-tooltip-header" class="flex justify-between items-start mb-1">
+                                            <strong class="text-rose-400 font-semibold tracking-wide uppercase text-[10px]">Partitive Rule</strong>
+                                            <button onclick="document.getElementById('ane-tooltip').classList.add('hidden')" class="text-stone-400 hover:text-white">&times;</button>
+                                        </div>
+                                        When "some" or "any" functions strictly as a partitive article—meaning it refers to an unspecified quantity of an uncountable substance—Kalob suppresses it entirely and leaves the noun bare.<br><br>
+                                        For example, "Give some bread and some berries" translates to <span class="text-rose-300 font-mono">ed kibho qhidu vd phrvdigu</span> (Give bread and cherries), completely omitting a translation for "some".
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -601,7 +610,7 @@
                             <button onclick="navigateToLexicon('Modificative')" class="ml-auto text-sm text-blue-600 hover:text-blue-800 font-semibold flex items-center transition-colors">See All <span class="ml-1 text-lg leading-none">&rsaquo;</span></button>
                         </div>
                         <p class="text-sm text-stone-600 mb-4">Adverbs and Gerunds. Always finish with the consonant <code class="bg-stone-100 px-1 rounded">zh</code>. Simple adverbs are 3+ letters; derived gerunds are 5+ letters.</p>
-                        <div class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
+                        <div id="adverbs-gerunds-table" class="bg-stone-50 rounded p-3 text-sm grid grid-cols-2 gap-2 text-stone-700">
                             <div>
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Simple Adverbs</span>
                                 <ul class="mt-1 space-y-1">
@@ -827,8 +836,8 @@
                 </div>
             </div>
 
-            <div class="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden h-[600px] flex flex-col">
-                <div class="overflow-y-auto overflow-x-auto custom-scroll flex-grow">
+            <div class="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden print:overflow-visible h-[600px] print:h-auto flex flex-col print:block">
+                <div class="overflow-y-auto overflow-x-auto print:overflow-visible print:h-auto custom-scroll flex-grow print:block">
                     <table class="w-full text-left border-collapse relative min-w-[500px]">
                         <thead class="sticky top-0 bg-stone-50 z-10 shadow-sm text-stone-500">
                             <tr class="text-sm uppercase tracking-wider border-b border-stone-200">
