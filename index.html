@@ -532,7 +532,7 @@
             </div>
 
             <!-- Personal Pronouns Deep Dive -->
-            <div class="bg-rose-900 text-white p-6 rounded-xl shadow-md border border-rose-800 mt-8 mb-8">
+            <div class="bg-rose-900 text-white p-6 rounded-xl shadow-md border border-rose-800 mt-8 mb-8 relative">
                 <h2 class="text-2xl font-bold mb-4 text-rose-300">Personal Pronouns: The Consonant Core</h2>
                 <p class="text-rose-100 mb-6 text-sm">
                     For almost all other words in the designative class (articles, demonstratives, relatives,
@@ -541,10 +541,33 @@
                     completely different mechanical system. The grammatical concepts of person, gender, and number
                     are encoded entirely within a <strong>single characteristic consonant</strong>: <strong>m</strong> (1
                     Sg.), <strong>t</strong> (2 Fam. Sg.), <strong>v</strong> (2 Res. Sg.), <strong>s</strong> (3 Anim. Sg.),
-                    <strong>l</strong> (3 Inan. Sg,), <strong>q</strong> (3 Abs. Sg.), <strong>n</strong> (1 Pl.), <strong>p</strong> (2
+                    <strong>l</strong> (3 Inan. Sg,), <strong>q</strong> (3 Abs. Sg.)<button onclick="document.getElementById('abstract-pronoun-tooltip').classList.toggle('hidden')" class="inline-block text-stone-400 hover:text-rose-600 focus:outline-none align-text-bottom ml-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>, <strong>n</strong> (1 Pl.), <strong>p</strong> (2
                     Fam. Pl.), <strong>g</strong> (2 Res. Pl.), <strong>b</strong> (3 Anim. Pl.), <strong>f</strong> (3 Inan. Pl.),
                     <strong>d</strong> (3 Abs. Pl.). Vowels are then wrapped around this consonant to assign the case.
                 </p>
+                <div id="abstract-pronoun-tooltip" class="hidden absolute top-20 md:top-24 left-6 md:left-12 lg:left-24 p-3 bg-stone-800 text-stone-100 text-xs rounded shadow-xl leading-relaxed z-50 w-64 sm:w-80 border border-stone-700">
+                    <div id="abstract-pronoun-tooltip-header" class="flex justify-between items-start mb-1">
+                        <strong class="text-rose-400 font-semibold tracking-wide uppercase text-[10px]">Abstract Pronoun Rule</strong>
+                        <button onclick="document.getElementById('abstract-pronoun-tooltip').classList.add('hidden')" class="text-stone-400 hover:text-white">&times;</button>
+                    </div>
+                    <div class="mt-2 space-y-2">
+                        <p>The Abstract pronoun serves as the primary tool for referencing non-physical entities. Its usage is strictly enforced in two specific contexts:</p>
+                        <ol class="list-decimal pl-4 space-y-1">
+                            <li><strong class="text-rose-400">Conceptual Antecedents:</strong> When the referent is a verb, a clause, or an intangible concept (e.g., "The theory is complex; <strong class="text-white">it</strong> [Abstract] requires study").</li>
+                            <li><strong class="text-rose-400">Pleonastic Subjects:</strong> Kalob maintains a rigid SVO architecture. In instances where a verb lacks a logical "doer"—such as weather phenomena—the Abstract pronoun is utilized as a structural anchor.</li>
+                        </ol>
+                        <div class="bg-stone-900 border border-stone-700 p-2 rounded mt-3">
+                            <strong class="text-stone-400 font-semibold text-[10px] uppercase tracking-wide block mb-1">Example: Weather</strong>
+                            <ul class="space-y-1 text-[11px] font-mono">
+                                <li><span class="text-stone-500 italic font-sans">En:</span> "It is raining."</li>
+                                <li><span class="text-stone-500 italic font-sans">Ka:</span> <span class="text-rose-300">[q] [RAIN]-o</span> <span class="text-stone-400 font-sans text-[10px]">(It rains)</span></li>
+                            </ul>
+                        </div>
+                        <p class="text-[11px] text-stone-400 pt-1 leading-snug">By doing this, the language satisfies the requirement for a subject slot without erroneously implying that a physical object or animate agent is performing the action, keeping the syntax tree logically consistent.</p>
+                    </div>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Singular Cases -->
                     <div class="bg-rose-950 p-4 rounded-lg border border-rose-800 flex flex-col">
