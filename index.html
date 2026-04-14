@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,11 +67,43 @@
         .highlight-input {
             animation: pulse-highlight 1.5s ease-out;
         }
+
+        @media print {
+            body { font-size: 11pt; background: #fff !important; }
+            .hidden-section { display: block !important; }
+            nav, .tab-btn, button[onclick^="document.getElementById"] { display: none !important; }
+            #nav-tabs { display: none !important; }
+            section#syntax { display: none !important; } /* Hide tools tab */
+            .shadow-sm, .shadow-md, .shadow-xl { box-shadow: none !important; }
+            .border { border: 1px solid #ddd !important; }
+            .tooltip-block { position: static !important; display: block !important; border: 1px solid #ccc !important; box-shadow: none !important; margin-top: 10px; width: 100% !important; }
+            canvas { max-width: 100% !important; }
+            .print-break-inside-avoid { break-inside: avoid; }
+            .overflow-x-auto { overflow: visible !important; }
+            main { padding-top: 0 !important; }
+
+            /* Force every main section (h1) to start on a new page */
+            /* but not the first one in the file */
+            h1:not(:first-of-type), h2:not(:first-of-type) {
+                break-before: page;
+            }
+
+            /* Prevent headers from being left stranded at the bottom of a page 
+            away from their paragraph */
+            h3, h4 {
+                break-after: avoid;
+            }
+
+            /* Prevent these elements from being chopped in half */
+            table, img, pre, blockquote {
+                break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden">
 
-    <nav class="bg-white shadow-sm border-b border-stone-200 sticky top-0 z-10">
+    <nav class="bg-white shadow-sm border-b border-stone-200 sticky top-0 z-10 print:hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -81,6 +115,10 @@
                     <button class="tab-btn px-3 pb-3 text-stone-600 hover:text-blue-800 transition-colors whitespace-nowrap" data-target="grammar">Grammar</button>
                     <button class="tab-btn px-3 pb-3 text-stone-600 hover:text-blue-800 transition-colors whitespace-nowrap" data-target="lexicon">Lexicon</button>
                     <button class="tab-btn px-3 pb-3 text-stone-600 hover:text-blue-800 transition-colors whitespace-nowrap" data-target="syntax">Syntax & Tools</button>
+                    <button onclick="window.print()" class="px-3 pb-3 text-stone-500 hover:text-stone-800 transition-colors whitespace-nowrap border-l border-stone-200 ml-2 pl-4" title="Print to PDF">
+                        <svg class="w-5 h-5 inline-block -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    </button>
+                </div>
                 </div>
             </div>
         </div>
@@ -683,6 +721,85 @@
                     </div>
                 </div>
             </div>
+
+            <!-- SVO & Phrase Structure -->
+            <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 mt-8">
+                <h2 class="text-xl font-semibold mb-4 text-stone-800">Phrase Structure & Word Order</h2>
+                <p class="text-sm text-stone-600 mb-4">Kalob strictly follows <strong>SVO (Subject-Verb-Object)</strong> word order. Modifiers have fixed positions relative to their heads: Nouns are modified by their Attributives (Adjectives) to the right, and Prepositional Phrases follow standard head-initial sequence.</p>
+                <p class="text-sm text-stone-600 mt-2 mb-6 bg-blue-50 p-2.5 rounded-lg border border-blue-100"><em>Note:</em> If a Modificative (Adverb) modifies an Attributive (Adjective) rather than the Verb, it is placed <strong>between</strong> the Noun and the Attributive.</p>
+
+                <div class="flex flex-col gap-5">
+                    <!-- Subject Phrase -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">1. Subject Noun Phrase</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-blue-700 text-sm block">Designative</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Precedes Noun</span>
+                            </div>
+                            <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-stone-600 text-sm block">Staffword</span>
+                                <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
+                            </div>
+                            <div class="bg-blue-50 px-3 py-2 rounded border-b-4 border-blue-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-stone-900 text-sm block">NOUN</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Subject Root</span>
+                            </div>
+                            <div class="bg-emerald-50 px-3 py-2 rounded border-b-4 border-emerald-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-emerald-800 text-sm block">Attributive</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Follows Noun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Verb Phrase -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">2. Verb Phrase</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-stone-600 text-sm block">Staffword</span>
+                                <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
+                            </div>
+                            <div class="bg-orange-50 px-3 py-2 rounded border-b-4 border-orange-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-stone-900 text-sm block">VERB</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Root + Vowel</span>
+                            </div>
+                            <div class="bg-rose-50 px-3 py-2 rounded border-b-4 border-rose-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-rose-800 text-sm block">Modificative</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Follows Verb</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Object & Prepositional Phrase -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">3. Prepositional Phrase & Object</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-teal-50 px-3 py-2 rounded border-b-4 border-teal-500 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-teal-800 text-sm block">Connective</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Preposition</span>
+                            </div>
+                            <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-blue-700 text-sm block">Designative</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Precedes Noun</span>
+                            </div>
+                            <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
+                                <span class="font-bold text-stone-600 text-sm block">Staffword</span>
+                                <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
+                            </div>
+                            <div class="bg-blue-50 px-3 py-2 rounded border-b-4 border-blue-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-stone-900 text-sm block">NOUN</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Object Root</span>
+                            </div>
+                            <div class="bg-emerald-50 px-3 py-2 rounded border-b-4 border-emerald-500 text-center flex-1 min-w-[120px]">
+                                <span class="font-bold text-emerald-800 text-sm block">Attributive</span>
+                                <span class="text-stone-500 text-[10px] uppercase">Follows Noun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- LEXICON SECTION -->
@@ -837,83 +954,6 @@
                     <div class="grid grid-cols-2 gap-3 flex-grow" id="number-results"></div>
                 </div>
 
-                <!-- SVO & Phrase Structure -->
-                <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 lg:col-span-2">
-                    <h2 class="text-xl font-semibold mb-4 text-stone-800">Phrase Structure & Word Order</h2>
-                    <p class="text-sm text-stone-600 mb-4">Kalob strictly follows <strong>SVO (Subject-Verb-Object)</strong> word order. Modifiers have fixed positions relative to their heads: Nouns are modified by their Attributives (Adjectives) to the right, and Prepositional Phrases follow standard head-initial sequence.</p>
-                    <p class="text-sm text-stone-600 mt-2 mb-6 bg-blue-50 p-2.5 rounded-lg border border-blue-100"><em>Note:</em> If a Modificative (Adverb) modifies an Attributive (Adjective) rather than the Verb, it is placed <strong>between</strong> the Noun and the Attributive.</p>
-
-                    <div class="flex flex-col gap-5">
-                        <!-- Subject Phrase -->
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
-                            <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">1. Subject Noun Phrase</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-blue-700 text-sm block">Designative</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Precedes Noun</span>
-                                </div>
-                                <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-stone-600 text-sm block">Staffword</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
-                                </div>
-                                <div class="bg-blue-50 px-3 py-2 rounded border-b-4 border-blue-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-stone-900 text-sm block">NOUN</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Subject Root</span>
-                                </div>
-                                <div class="bg-emerald-50 px-3 py-2 rounded border-b-4 border-emerald-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-emerald-800 text-sm block">Attributive</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Follows Noun</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Verb Phrase -->
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
-                            <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">2. Verb Phrase</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-stone-600 text-sm block">Staffword</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
-                                </div>
-                                <div class="bg-orange-50 px-3 py-2 rounded border-b-4 border-orange-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-stone-900 text-sm block">VERB</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Root + Vowel</span>
-                                </div>
-                                <div class="bg-rose-50 px-3 py-2 rounded border-b-4 border-rose-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-rose-800 text-sm block">Modificative</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Follows Verb</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Object & Prepositional Phrase -->
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
-                            <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wide mb-3">3. Prepositional Phrase & Object</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="bg-teal-50 px-3 py-2 rounded border-b-4 border-teal-500 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-teal-800 text-sm block">Connective</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Preposition</span>
-                                </div>
-                                <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-blue-700 text-sm block">Designative</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Precedes Noun</span>
-                                </div>
-                                <div class="bg-stone-50 px-3 py-2 rounded border border-stone-200 text-center flex-1 min-w-[100px]">
-                                    <span class="font-bold text-stone-600 text-sm block">Staffword</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">nu, su, u</span>
-                                </div>
-                                <div class="bg-blue-50 px-3 py-2 rounded border-b-4 border-blue-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-stone-900 text-sm block">NOUN</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Object Root</span>
-                                </div>
-                                <div class="bg-emerald-50 px-3 py-2 rounded border-b-4 border-emerald-500 text-center flex-1 min-w-[120px]">
-                                    <span class="font-bold text-emerald-800 text-sm block">Attributive</span>
-                                    <span class="text-stone-500 text-[10px] uppercase">Follows Noun</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </section>
@@ -925,6 +965,7 @@
             <div class="text-sm text-stone-500 text-center md:text-left">
                 &copy; 2026 Kalob Language. All rights reserved.<br>
                 <span class="text-xs mt-1 block">A modern evolution of <a href="https://en.wikipedia.org/wiki/Bolak_language" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">Bolak</a>.</span>
+                <span class="text-xs mt-1 block">Last updated: {{ site.time | date: "%B %d, %Y" }}</span>
             </div>
             
             <div class="flex items-center space-x-6 text-sm">
