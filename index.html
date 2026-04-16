@@ -1191,6 +1191,78 @@
                 </div>
             </div>
 
+             <!-- Building Numbers Deep Dive -->
+            <div class="bg-teal-900 text-white p-6 rounded-xl shadow-md border border-teal-800 mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-teal-300">Building Numbers: Digits to Magnitudes</h2>
+                <p class="text-teal-100 mb-6 text-sm">
+                    The foundation of Kalob mathematics relies on ten unique root words for the digits 1 through 10. From these roots, any number can be logically derived using specific prefixes and suffixes. Check out the Number suffixes in the Number Derivator tool to learn how to use numbers as ordinals, multiples, and more.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Basic Numbers -->
+                    <div class="bg-teal-950 p-4 rounded-lg border border-teal-800 flex flex-col">
+                        <h3 class="font-semibold text-teal-300 mb-2 border-b border-teal-800 pb-2">1. Basic Digits</h3>
+                        <ul class="text-sm text-teal-200 space-y-1.5 flex-grow font-mono">
+                            <li><strong class="text-white w-4 inline-block">1</strong> phwn</li>
+                            <li><strong class="text-white w-4 inline-block">2</strong> tvbh</li>
+                            <li><strong class="text-white w-4 inline-block">3</strong> threz</li>
+                            <li><strong class="text-white w-4 inline-block">4</strong> qad</li>
+                            <li><strong class="text-white w-4 inline-block">5</strong> phabh</li>
+                            <li><strong class="text-white w-4 inline-block">6</strong> sigz</li>
+                            <li><strong class="text-white w-4 inline-block">7</strong> sebd</li>
+                            <li><strong class="text-white w-4 inline-block">8</strong> khogd</li>
+                            <li><strong class="text-white w-4 inline-block">9</strong> nobh</li>
+                            <li><strong class="text-white w-6 inline-block">10</strong> cen</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Teens -->
+                    <div class="bg-teal-950 p-4 rounded-lg border border-teal-800 flex flex-col">
+                        <h3 class="font-semibold text-teal-300 mb-2 border-b border-teal-800 pb-2">2. The Teens (11-19)</h3>
+                        <p class="text-[11px] text-teal-200 mb-3 leading-snug">Constructed additively by attaching the base digit to the prefix <code class="bg-teal-800 px-1 rounded text-teal-100">ce-</code> (a reduction of cen, 10).</p>
+                        <div class="bg-teal-900 p-2.5 rounded text-[12px] space-y-2 border border-teal-700 font-mono flex-grow">
+                            <div class="flex justify-between items-center"><span><strong class="text-white">ce</strong>phwn</span> <span class="text-teal-200">11</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white">ce</strong>tvbh</span> <span class="text-teal-200">12</span></div>
+                            <div class="flex justify-between items-center"><span><strong class="text-white">ce</strong>threz</span> <span class="text-teal-200">13</span></div>
+                            <div class="text-center text-teal-400/50 pt-2">...</div>
+                        </div>
+                    </div>
+
+                    <!-- Tens & Hundreds -->
+                    <div class="bg-teal-950 p-4 rounded-lg border border-teal-800 flex flex-col">
+                        <h3 class="font-semibold text-teal-300 mb-2 border-b border-teal-800 pb-2">3. Tens & Hundreds</h3>
+                        <p class="text-[11px] text-teal-200 mb-3 leading-snug">Tens and hundreds reverse the teen pattern by attaching a suffix to the multiplier digit.</p>
+                        <div class="bg-teal-900 p-2.5 rounded text-[12px] space-y-2 border border-teal-700 font-mono flex-grow flex flex-col justify-center">
+                            <div class="flex justify-between items-center"><span>tvbh<strong class="text-white">en</strong></span> <span class="text-teal-200">20</span></div>
+                            <div class="flex justify-between items-center"><span>qad<strong class="text-white">en</strong></span> <span class="text-teal-200">40</span></div>
+                            <div class="flex justify-between items-center pt-2 border-t border-teal-800/50"><span>tvbh<strong class="text-white">wnd</strong></span> <span class="text-teal-200">200</span></div>
+                            <div class="flex justify-between items-center"><span>cethrez<strong class="text-white">wnd</strong></span> <span class="text-teal-200">1300</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Magnitudes -->
+                    <div class="bg-teal-950 p-4 rounded-lg border border-teal-800 flex flex-col">
+                        <h3 class="font-semibold text-teal-300 mb-2 border-b border-teal-800 pb-2">4. Magnitudes</h3>
+                        <p class="text-[11px] text-teal-200 mb-3 leading-snug">The root for 1,000 is <code class="bg-teal-800 px-1 rounded text-teal-100">myon</code>. Larger magnitudes use <code class="bg-teal-800 px-1 rounded text-teal-100">myo-</code> + base root. (Base value × 3 = number of zeros).</p>
+                        <div class="bg-teal-900 p-2.5 rounded text-[12px] space-y-2 border border-teal-700 font-mono flex-grow flex flex-col justify-center">
+                            <div class="flex justify-between items-start flex-col">
+                                <span><strong class="text-white">myo</strong>threz</span> 
+                                <span class="text-teal-300 text-[10px] mt-0.5 leading-tight">threz (3) × 3 = 9 zeros<br>1,000,000,000 (Billion)</span>
+                            </div>
+                            <div class="flex justify-between items-start flex-col pt-2 border-t border-teal-800/50">
+                                <span><strong class="text-white">myo</strong>qad</span> 
+                                <span class="text-teal-300 text-[10px] mt-0.5 leading-tight">qad (4) × 3 = 12 zeros<br>1,000,000,000,000 (Trillion)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-teal-950 p-3 rounded-lg border border-teal-800 text-sm flex flex-col md:flex-row items-center gap-3">
+                        <span class="font-bold text-teal-300 whitespace-nowrap">Complex Example:</span>
+                        <code class="bg-teal-900 px-2 py-1.5 rounded text-white font-mono break-all text-xs">cephwn myothrez qaden myotvbh phabhwnd tvbh</code>
+                        <span class="text-teal-200 whitespace-nowrap md:ml-auto font-mono font-bold">= 11,040,000,502</span>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- LEXICON SECTION -->
@@ -2025,7 +2097,10 @@
                 { word: 'rat', cat: 'Noun/Number', pos: 'Noun', eng: 'To compare / ratio / than' },
                 { word: 'plwz', cat: 'Noun/Number', pos: 'Noun', eng: 'To add / plus' },
                 { word: 'swb', cat: 'Noun/Number', pos: 'Noun', eng: 'To subtract / to reduce' },
-                { word: 'phragd', cat: 'Noun/Number', pos: 'Noun', eng: 'To divide / separate / fraction / portion' },
+                { word: 'phragd', cat: 'Noun/Number', pos: 'Noun', eng: 'To divide / separate / fraction / portion / second' },
+                { word: 'skwnd', cat: 'Noun/Number', pos: 'Noun', eng: 'Second / instant / atomic pulse' },
+                { word: 'pan', cat: 'Noun/Number', pos: 'Noun', eng: 'Noon / midday / solar zenith' },
+                { word: 'mijh', cat: 'Noun/Number', pos: 'Noun', eng: 'Midnight / dead of night / solar nadir' },
                 { word: 'sad', cat: 'Noun/Number', pos: 'Noun', eng: 'Time / hour / era' },
                 { word: 'phez', cat: 'Noun/Number', pos: 'Noun', eng: 'Period / phase / cycle' },
                 { word: 'nyan', cat: 'Noun/Number', pos: 'Noun', eng: 'Year' },
