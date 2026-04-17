@@ -163,7 +163,7 @@
                             <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">e</span> <span>Plural, Past Tense, General Adj/Adv, "More"</span></div>
                             <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">i</span> <span>Prepositions, Eternal Tense, Eternal Adj/Adv, "Most"</span></div>
                             <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">o</span> <span>Prepositions, Present Tense, Transitory Adj/Adv, "Less"</span></div>
-                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">v</span> <span>Conjunctions, Habitual Tense, Frequentative Adj/Adv, "Too"</span></div>
+                            <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">v</span> <span>Conjunctions, Habitual Tense, Habitual Adj/Adv, "Too"</span></div>
                             <div class="flex items-start"><span class="font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">w</span> <span>Conjunctions, Hypothetical, Possibility Adj/Adv, "Insufficiently"</span></div>
                             <div class="sm:col-span-2 flex items-start mt-1 bg-orange-50 p-2 rounded border border-orange-100"><span class="font-bold text-orange-900 bg-orange-200 px-2 py-0.5 rounded mr-2 shadow-sm font-mono text-xs">u</span> <span>Plural (suffix), Virtual/Compounder (prefix), Passive (infix), "As/Equally"</span></div>
                         </div>
@@ -881,7 +881,7 @@
                         <div class="bg-stone-50 rounded p-3 text-sm text-stone-700">
                             <ul class="space-y-1">
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-ij</strong> Present Participle (Eternal)</li>
-                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-vj</strong> Present Participle (Frequentative)</li>
+                                <li><strong class="text-emerald-700 w-10 inline-block text-base">-vj</strong> Present Participle (Habitual)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-oj</strong> Present Participle (Transitory)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-ej</strong> Qualifying Adjective (General)</li>
                                 <li><strong class="text-emerald-700 w-10 inline-block text-base">-aj</strong> Qualifying Adjective (Duty)</li>
@@ -914,7 +914,7 @@
                                 <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Derived</span>
                                 <ul class="mt-1 space-y-1">
                                     <li><strong class="text-rose-700 text-base">-izh</strong> (Participle - Eternal)</li>
-                                    <li><strong class="text-rose-700 text-base">-vzh</strong> (Participle - Frequentative)</li>
+                                    <li><strong class="text-rose-700 text-base">-vzh</strong> (Participle - Habitual)</li>
                                     <li><strong class="text-rose-700 text-base">-ozh</strong> (Participle - Transitory)</li>
                                     <li><strong class="text-rose-700 text-base">-ezh</strong> (General)</li>
                                     <li><strong class="text-rose-700 text-base">-azh</strong> (Duty)</li>
@@ -1290,9 +1290,15 @@
                                     </tr>
                                     <tr class="hover:bg-amber-900/40">
                                         <td class="p-3 font-bold font-mono text-amber-400 whitespace-nowrap">-en</td>
-                                        <td class="p-3">Multiple effort, multiple number</td>
+                                        <td class="p-3">Multiple effort, multiple number (10x)</td>
                                         <td class="p-3"><code class="font-mono bg-amber-900 border border-amber-800 px-1 rounded text-amber-200">cen</code> <span class="text-[11px] opacity-75 block mt-0.5 sm:inline sm:mt-0 sm:ml-1">(10 / Ten)</span></td>
                                         <td class="p-3 italic text-amber-500/80">-ening</td>
+                                    </tr>
+                                    <tr class="hover:bg-amber-900/40">
+                                        <td class="p-3 font-bold font-mono text-amber-400 whitespace-nowrap">-wnd</td>
+                                        <td class="p-3">Frequentative effort, multiple number (100x)</td>
+                                        <td class="p-3"><code class="font-mono bg-amber-900 border border-amber-800 px-1 rounded text-amber-200">cen</code> <span class="text-[11px] opacity-75 block mt-0.5 sm:inline sm:mt-0 sm:ml-1">(10 / Ten)</span></td>
+                                        <td class="p-3 italic text-amber-500/80">-le, -er, "all around"</td>
                                     </tr>
                                     <tr class="hover:bg-amber-900/40">
                                         <td class="p-3 font-bold font-mono text-amber-400 whitespace-nowrap">-vdh</td>
@@ -2726,6 +2732,7 @@
             { suffix: 'ib', name: 'Instrument', desc: 'instrument (-er, -or, -ment, -ary, -cle)' },
             { suffix: 'anz', name: 'Change of State', desc: 'changing state or action (-ize, -ify, -en, -esce)' },
             { suffix: 'en', name: 'Multiple', desc: 'multiple effort, multiple number (-ening)' },
+            { suffix: 'wnd', name: 'Frequentative', desc: 'frequentative effort, multiple number (-le, -er, "all around")' },
             { suffix: 'vdh', name: 'Moral', desc: 'moral characteristical generality (-ism, -ity)' },
             { suffix: 'amb', name: 'Worker', desc: 'worker; clerk; employed in (-er, -or, -ist)' },
             { suffix: 'wng', name: 'Destination', desc: 'destination, use (-ate, -ide, -ine, -ian, -ese)' },
@@ -2748,7 +2755,7 @@
                 { suffix: 'oj', name: 'Transitory', desc: 'Present Participle (temporary)' },
                 { suffix: 'ej', name: 'General', desc: 'Qualifying Adjective (general)' },
                 { suffix: 'aj', name: 'Duty', desc: 'Qualifying Adjective (duty)' },
-                { suffix: 'vj', name: 'Frequentative', desc: 'Present Participle (frequent)' },
+                { suffix: 'vj', name: 'Habitual', desc: 'Present Participle (habitual)' },
                 { suffix: 'wj', name: 'Possibility', desc: 'Qualifying Adjective (possible)' }
             ],
             modificative: [
@@ -2756,7 +2763,7 @@
                 { suffix: 'ozh', name: 'Transitory Adv', desc: 'Participle Adverb (temporary)' },
                 { suffix: 'ezh', name: 'General Adv', desc: 'Adverb of Quality (general)' },
                 { suffix: 'azh', name: 'Duty Adv', desc: 'Adverb of Quality (duty)' },
-                { suffix: 'vzh', name: 'Frequentative Adv', desc: 'Participle Adverb (frequent)' },
+                { suffix: 'vzh', name: 'Habitual Adv', desc: 'Participle Adverb (habitual)' },
                 { suffix: 'wzh', name: 'Possibility Adv', desc: 'Adverb of Quality (possible)' }
             ]
         };
