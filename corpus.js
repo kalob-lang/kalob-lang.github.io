@@ -1,7 +1,7 @@
 // corpus.js
 const KALOB_CORPUS = [
     {
-        title: "The North Fart & the Sun",
+        title: "The North Wind & the Sun",
         description: "A classic linguistic translation text demonstrating noun compounding, syntax, and complex modulations.",
         sentences: [
             {
