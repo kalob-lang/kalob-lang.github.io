@@ -3749,7 +3749,8 @@
     <script>
         const state = {
             activeTab: 'phonology',
-            lexiconData: KALOB_LEXICON
+            lexiconData: KALOB_LEXICON,
+            suffixData: KALOB_SUFFIXES
         };
 
         const tenses = [
@@ -3759,54 +3760,6 @@
             { id: 'a', name: 'Future', suffix: 'a', desc: 'Ought to/Will' },
             { id: 'v', name: 'Habitual', suffix: 'v', desc: 'Customary' },
             { id: 'w', name: 'Hypothetical', suffix: 'w', desc: 'Conditional' }
-        ];
-
-        const numberDerivations = [
-            { id: 'idh', name: 'Ordinal', suffix: 'idh', desc: 'Rank or order (1st, 2nd, 3rd...)' },
-            { id: 'oz', name: 'Multiple', suffix: 'oz', desc: 'Precise multiplication (single, double, triple...)' },
-            { id: 'om', name: 'Fractional', suffix: 'om', desc: 'Precise division/fractions (half, third, quarter...)' },
-            { id: 'am', name: 'Collective', suffix: 'am', desc: 'Vague collective group (about eight, a dozen...)' },
-            { id: 'erl', name: 'Sortive', suffix: 'erl', desc: 'Distinctive collective (of X sorts/kinds...)' },
-            { id: 'old', name: 'Frequentative', suffix: 'old', desc: 'Multiplying collective (once, twice, nine times...)' }
-        ];
-
-        const commonSuffixes = [
-            { suffix: 'ald', name: 'Nature/Quality', desc: 'the nature of (-ness)' },
-            { suffix: 'ajh', name: 'Composition', desc: 'made of (-en, -ic)' },
-            { suffix: 'adh', name: 'Illness', desc: 'illness (-itis, -algia)' },
-            { suffix: 'arjh', name: 'Part of', desc: 'piece, part of (-let)' },
-            { suffix: 'az', name: 'Relating to', desc: 'moral relation (-al)' },
-            { suffix: 'wmb', name: 'Augmentative', desc: 'large, great (super-, mega-)' },
-            { suffix: 'ezd', name: 'Hate/Disgust', desc: 'hate, disgust (-phobia, -misia)' },
-            { suffix: 'ijh', name: 'State/Situation', desc: 'quality, state (-dom)' },
-            { suffix: 'vd', name: 'Result', desc: 'result of action (-ment)' },
-            { suffix: 'ard', name: 'Beginning', desc: 'beginning of action (en-, be-, -esce)' },
-            { suffix: 'irm', name: 'Commercial', desc: 'commercial, trading (-ery, -shop, -store)' },
-            { suffix: 'ozd', name: 'Commanding', desc: 'commanding, at the head of (arch-, head-, chief-, -master)' },
-            { suffix: 'ig', name: 'Diminutive', desc: 'small, young, inferior (-ling, -let, -ette)' },
-            { suffix: 'and', name: 'Liking', desc: 'liking, being fond of (-phile)' },
-            { suffix: 'vbh', name: 'Action/Operation', desc: 'acting, operating (-ify, -ize, -en, -ant, -ent)' },
-            { suffix: 'wd', name: 'Science', desc: 'name of science (-logy, -ics, -graphy)' },
-            { suffix: 'vb', name: 'Instrument', desc: 'instrument (-er, -or, -ment, -ary, -cle)' },
-            { suffix: 'in', name: 'Containing', desc: 'containing, full of (-ful, -ous)' },
-            { suffix: 'anz', name: 'Change of State', desc: 'changing state or action (-ize, -ify, -en, -esce)' },
-            { suffix: 'en', name: 'Multiple', desc: 'multiple effort, multiple number (-ening)' },
-            { suffix: 'wnd', name: 'Frequentative', desc: 'frequentative effort, multiple number (-le, -er, "all around")' },
-            { suffix: 'vdh', name: 'Moral', desc: 'moral characteristical generality (-ism, -ity)' },
-            { suffix: 'amb', name: 'Worker', desc: 'worker; clerk; employed in (-er, -or, -ist)' },
-            { suffix: 'orz', name: 'Derivation', desc: 'deriving or being derived from (-ate, -ide, -ine, -ian, -ese)' },
-            { suffix: 'wng', name: 'Destination', desc: 'destination, use (-able, -ible, -ware)' },
-            { suffix: 'an', name: 'Blow', desc: 'blow, strike, hit (-)' },
-            { suffix: 'edh', name: 'Tree', desc: 'name of a tree (-)' },
-            { suffix: 'on', name: 'Ground', desc: 'place or ground planted in (-yard, -orchard, -grove, -ery)' },
-            { suffix: 'erd', name: 'Actor/Acting', desc: 'actor, acting (-er, -or, -ant, -ent)' },
-            { suffix: 'eb', name: 'Shape', desc: 'having form of, being shaped (-oid, -form)' },
-            { suffix: 'ing', name: 'Place', desc: 'place where people stay (-ary, -ery, -ory, -orium, -arium)' },
-            { suffix: 'od', name: 'Science Expression', desc: 'general scientific expression (-ia, -ium, -on)' },
-            { suffix: 'id', name: 'Physical Collectivity', desc: 'physical collectivity or generality (-age, -ry, -ware)' },
-            { suffix: 'em', name: 'Maker', desc: 'maker, manufacturer (-maker, -smith, -wright)' },
-            { suffix: 'ez', name: 'Inhabitant', desc: 'inhabitant of (-ian, -ese, -ite)' },
-            { suffix: 'ag', name: 'Spouse', desc: 'spouse of (-husband, -wife)' }
         ];
 
         const amData = {
@@ -4165,7 +4118,7 @@
 
                 container.innerHTML = '';
 
-                commonSuffixes.forEach(sfx => {
+                state.suffixData.COMMON.forEach(sfx => {
                     const div = document.createElement('div');
                     div.className = 'bg-stone-50 border border-stone-200 p-3 rounded shadow-sm';
                     div.innerHTML = `
@@ -4224,7 +4177,7 @@
                 const root = select.value;
                 container.innerHTML = '';
 
-                numberDerivations.forEach(deriv => {
+                state.suffixData.NUMBER.forEach(deriv => {
                     const div = document.createElement('div');
                     div.className = 'bg-stone-50 border border-stone-200 p-3 rounded shadow-sm';
                     div.innerHTML = `
